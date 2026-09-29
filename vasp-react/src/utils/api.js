@@ -1,4 +1,4 @@
-export const API_BASE = import.meta.env.VITE_API_URL || 'https://chaintrace-1-ybh7.onrender.com/api';
+export const API_BASE = import.meta.env.VITE_API_URL || 'https://chaintrace-yvt9.onrender.com/api';
 
 function getAuthHeader() {
  const token = localStorage.getItem('sih_auth_token');
