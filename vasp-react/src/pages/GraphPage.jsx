@@ -490,20 +490,24 @@ export default function GraphPage() {
   setDraggingNode(null)
  }
 
- // Normal smooth vertical & horizontal scroll
- const handleWheel = (e) => {
+ // Ctrl+Scroll = zoom only. Regular scroll = page scrolls (not hijacked).
+ const handleWheel = useCallback((e) => {
   if (e.ctrlKey || e.metaKey) {
    e.preventDefault()
-   const factor = e.deltaY < 0 ? 1.08 : 0.92
-   setZoom(z => Math.max(0.35, Math.min(2.5, z * factor)))
-  } else {
-   // Natural vertical and horizontal scroll
-   setPan(p => ({
-    x: p.x - (e.shiftKey ? e.deltaY : e.deltaX),
-    y: p.y - (e.shiftKey ? 0 : e.deltaY)
-   }))
+   e.stopPropagation()
+   const factor = e.deltaY < 0 ? 1.1 : 0.91
+   setZoom(z => Math.max(0.3, Math.min(3.0, z * factor)))
   }
- }
+  // No else: regular scroll is NOT intercepted -- browser handles page scroll
+ }, [])
+
+ // Attach as non-passive so e.preventDefault() works for Ctrl+Scroll
+ useEffect(() => {
+  const el = containerRef.current
+  if (!el) return
+  el.addEventListener('wheel', handleWheel, { passive: false })
+  return () => el.removeEventListener('wheel', handleWheel)
+ }, [handleWheel])
 
  const copyToClipboard = (text, label) => {
   navigator.clipboard.writeText(text).then(() => {
@@ -752,7 +756,6 @@ export default function GraphPage() {
     onMouseDown={handleCanvasMouseDown}
     onMouseMove={handleCanvasMouseMove}
     onMouseUp={handleCanvasMouseUp}
-    onWheel={handleWheel}
    >
     {/* LEA Forensic Watermark */}
     <div style={{

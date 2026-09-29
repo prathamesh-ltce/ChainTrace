@@ -4,34 +4,17 @@ import { authApi, alertsApi } from '../utils/api'
 const AppContext = createContext(null)
 
 export function AppProvider({ children }) {
- const [isLoggedIn, setIsLoggedIn] = useState(() => {
-  return !!localStorage.getItem('sih_auth_token')
- })
- 
- const [currentUser, setCurrentUser] = useState(() => {
-  try {
-   const stored = localStorage.getItem('sih_user')
-   if (stored) {
-    const u = JSON.parse(stored)
-    return u.username || 'admin'
-   }
-  } catch (_) {}
-  return localStorage.getItem('sih_auth_token') ? 'admin' : null
- })
+ // Always start at Login Page on website launch - No auto-login
+ const [isLoggedIn, setIsLoggedIn] = useState(false)
+ const [currentUser, setCurrentUser] = useState(null)
+ const [userProfile, setUserProfile] = useState(null)
 
- const [userProfile, setUserProfile] = useState(() => {
-  try {
-   const stored = localStorage.getItem('sih_user')
-   if (stored) return JSON.parse(stored)
-  } catch (_) {}
-  return {
-   username: 'admin',
-   full_name: 'Senior Cyber Investigator',
-   badge_id: 'LEA-DL-9842',
-   unit: 'Cyber Crime Cell',
-   role: 'admin'
-  }
- })
+ useEffect(() => {
+  // Ensure stale tokens are cleared so opening the website always shows the login page
+  localStorage.removeItem('sih_auth_token')
+  localStorage.removeItem('sih_user')
+  sessionStorage.clear()
+ }, [])
 
  const [currentView, setCurrentView] = useState('dashboard')
  const [currentReport, setCurrentReport] = useState(null)
@@ -90,6 +73,9 @@ export function AppProvider({ children }) {
   try {
    await authApi.logout()
   } catch (_) {}
+  localStorage.removeItem('sih_auth_token')
+  localStorage.removeItem('sih_user')
+  sessionStorage.clear()
   setIsLoggedIn(false)
   setCurrentUser(null)
   setUserProfile(null)
