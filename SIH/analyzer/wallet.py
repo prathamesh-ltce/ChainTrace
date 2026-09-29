@@ -924,8 +924,12 @@ async def analyze_wallet(
     )
     duration = time.time() - start_time
 
-    total_in = sum(t.value for t in inflows)
-    total_out = sum(t.value for t in outflows)
+    total_in = round(sum(t.value for t in inflows), 6)
+    hop1_outflows = [item.get("amount", 0.0) for item in tracer.ledger if item.get("hop") == 1]
+    if hop1_outflows:
+        total_out = round(sum(hop1_outflows), 6)
+    else:
+        total_out = round(sum(t.value for t in outflows), 6)
 
     print("-" * 85)
     print(f"[+] SUSPECT WALLET ON-CHAIN SUMMARY:")
