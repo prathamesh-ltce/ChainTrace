@@ -1,0 +1,88 @@
+{
+  "case_id": "VASP-20260919_132909",
+  "generated_at": "2026-09-19T13:29:09.505477+00:00",
+  "engine": "Automated Blockchain Forensic & VASP Attribution Engine (Zero API Keys)",
+  "graph_engine": "TransactionGraphBackend (C++ CSR Graph + Microsecond BFS)",
+  "cpp_engine_stats": {
+    "nodesCount": 3,
+    "edgesCount": 2,
+    "nodesVisited": 3,
+    "edgesExamined": 3,
+    "executionTimeUs": 2,
+    "truncated": false
+  },
+  "suspect_address": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+  "blockchain": "ETH",
+  "max_hops_traced": 15,
+  "duration_seconds": 2.0,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 0.09,
+    "inflow_count": 0,
+    "outflow_count": 50,
+    "transfers_traced": 3
+  },
+  "risk_assessment": {
+    "risk_score": 20,
+    "risk_level": "LOW",
+    "typologies": [
+      "Cross-Chain Obfuscation via DeFi Bridge"
+    ],
+    "mixer_detected": false,
+    "darknet_detected": false,
+    "betting_detected": false,
+    "bridge_detected": true,
+    "peeling_chain_detected": false
+  },
+  "vasp_targets": [
+    {
+      "hop": 1,
+      "address": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "vasp_name": "Across Protocol",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "vasp_name": "Across Protocol",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "amount": 0.07,
+      "timestamp": 1789748843,
+      "tx_hash": "0x5f36a771bfb6e3d3a5a1982bcb3435d104ce9c2a4ffb1146464e88e1942619d4",
+      "profile": "[DEFI BRIDGE: ACROSS PROTOCOL]"
+    },
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "amount": 0.02,
+      "timestamp": 1789693943,
+      "tx_hash": "0x791c33408d1c49bf0c9d1f357ec0587f4f6da7297b1e3d113e5a5454ab357ce3",
+      "profile": "[DEFI BRIDGE: ACROSS PROTOCOL]"
+    },
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x0de8bf93da2f7eecb3d9169422413a9bef4ef628",
+      "amount": 0.0,
+      "timestamp": 1789844183,
+      "tx_hash": "0x258dfdd844c9a02c3e3c646dee9dfd55b4f34c75811659aff215114f6e40eec9",
+      "profile": ""
+    }
+  ]
+}

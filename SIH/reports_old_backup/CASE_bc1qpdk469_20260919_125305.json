@@ -1,0 +1,251 @@
+{
+  "case_id": "VASP-20260919_125305",
+  "generated_at": "2026-09-19T12:53:05.151317+00:00",
+  "engine": "Automated Blockchain Forensic & VASP Attribution Engine (Zero API Keys)",
+  "graph_engine": "TransactionGraphBackend (C++ CSR Graph + Microsecond BFS)",
+  "cpp_engine_stats": {
+    "nodesCount": 18,
+    "edgesCount": 17,
+    "nodesVisited": 18,
+    "edgesExamined": 19,
+    "executionTimeUs": 16,
+    "truncated": false
+  },
+  "suspect_address": "bc1qpdk469khg88sm2yhmpk5hyypcvqhfjcfftw9vz",
+  "blockchain": "BTC",
+  "max_hops_traced": 15,
+  "duration_seconds": 49.25,
+  "on_chain_summary": {
+    "total_inflow": 0.0025688,
+    "total_outflow": 0.00502982,
+    "inflow_count": 8,
+    "outflow_count": 17,
+    "transfers_traced": 19
+  },
+  "risk_assessment": {
+    "risk_score": 20,
+    "risk_level": "LOW",
+    "typologies": [
+      "Structured Layering (Multiple intermediary hops)"
+    ],
+    "mixer_detected": false,
+    "darknet_detected": false,
+    "betting_detected": false,
+    "bridge_detected": false
+  },
+  "vasp_targets": [
+    {
+      "hop": 3,
+      "address": "1FWQiwK27EnGXb6BiBMRLJvunJQZZPMcGd",
+      "vasp_name": "Gemini",
+      "jurisdiction": "United States",
+      "compliance_email": "compliance@gemini.com",
+      "acc_score": 0.85,
+      "paes_score": 0.7,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 3,
+      "address": "1FWQiwK27EnGXb6BiBMRLJvunJQZZPMcGd",
+      "vasp_name": "Gemini",
+      "jurisdiction": "United States",
+      "compliance_email": "compliance@gemini.com",
+      "acc_score": 0.85,
+      "paes_score": 0.7,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 8,
+      "address": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "vasp_name": "Binance",
+      "jurisdiction": "Global",
+      "compliance_email": "compliance@binance.com",
+      "acc_score": 0.85,
+      "paes_score": 0.6,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 8,
+      "address": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "vasp_name": "Binance",
+      "jurisdiction": "Global",
+      "compliance_email": "compliance@binance.com",
+      "acc_score": 0.85,
+      "paes_score": 0.6,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1qpdk469khg88sm2yhmpk5hyypcvqhfjcfftw9vz",
+      "to": "bc1qxaak5mkw8zy8z4gv2gqkxjs6xdyhz7qy0kaf7k",
+      "amount": 0.00192565,
+      "timestamp": 1785072047,
+      "tx_hash": "115e452ad06ebbd1e55c179f493b13e9085730a18b92b65c0bc9b113f087fabf",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 2,
+      "from": "bc1qxaak5mkw8zy8z4gv2gqkxjs6xdyhz7qy0kaf7k",
+      "to": "1JguJkd6B8UEu6DXNAmeafsr1hAB1fA2xN",
+      "amount": 0.00185214,
+      "timestamp": 1785074816,
+      "tx_hash": "5a45ae1113cccb3c637045ab600ba71be4b7ead4f367ef346181250b9ef00e01",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "1JguJkd6B8UEu6DXNAmeafsr1hAB1fA2xN",
+      "to": "1FWQiwK27EnGXb6BiBMRLJvunJQZZPMcGd",
+      "amount": 0.57640852,
+      "timestamp": 1789724876,
+      "tx_hash": "fba2853846c7cc6fc60b765ffa086242b3a38130e0b41c537c36783dec634e84",
+      "profile": "[VERIFIED VASP: GEMINI (United States - EXCHANGE)]"
+    },
+    {
+      "hop": 3,
+      "from": "1JguJkd6B8UEu6DXNAmeafsr1hAB1fA2xN",
+      "to": "1FWQiwK27EnGXb6BiBMRLJvunJQZZPMcGd",
+      "amount": 0.33378365,
+      "timestamp": 1789641854,
+      "tx_hash": "3f1e0f3803ea7e8239131cbe577a9137265c2b5ae41a228cfc66435917d056c5",
+      "profile": "[VERIFIED VASP: GEMINI (United States - EXCHANGE)]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qpdk469khg88sm2yhmpk5hyypcvqhfjcfftw9vz",
+      "to": "bc1qxvshssjwdt9vnhe8zrkdt8pu94ftks5cjfr3eg",
+      "amount": 0.00135234,
+      "timestamp": 1785876480,
+      "tx_hash": "dded412c37e1db8843d112c73f95a662dcbef47b3dce77821702e2c426aaec60",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 2,
+      "from": "bc1qxvshssjwdt9vnhe8zrkdt8pu94ftks5cjfr3eg",
+      "to": "bc1qmcdrx00gyl9yw8ascxqn8sqztsnqde5cea2lce",
+      "amount": 0.00134663,
+      "timestamp": 1785879952,
+      "tx_hash": "db4a7752f6c1e092a962e2057762bc689bef07ff948ae58cbae88772d5696228",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "bc1qmcdrx00gyl9yw8ascxqn8sqztsnqde5cea2lce",
+      "to": "bc1qrmugmttkxfgrvq5ku45nyqpm7ntcfphygzazzz",
+      "amount": 0.00063881,
+      "timestamp": 1785879952,
+      "tx_hash": "bccb6feaba700f8906e50fb62689a20ed474febd66fd048e2d3f0094a5198e01",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 4,
+      "from": "bc1qrmugmttkxfgrvq5ku45nyqpm7ntcfphygzazzz",
+      "to": "bc1qcv8mz8esgsyz6rd8f9l0c20fsngtrsvq7uude6",
+      "amount": 0.00100236,
+      "timestamp": 1785881377,
+      "tx_hash": "0a76c1f71ac2ff5301614d79aad908bf74e35cf76a56281e6ada02e7155bb347",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 5,
+      "from": "bc1qcv8mz8esgsyz6rd8f9l0c20fsngtrsvq7uude6",
+      "to": "bc1q5a8q9xxr33gqpq4l9ms87mj7fcyqygd7ce76xz",
+      "amount": 0.00026029,
+      "timestamp": 1788394429,
+      "tx_hash": "fddd6a5ce8f4cd3f87ebd1876e99e6624ce399c511181339f06be6aed736834b",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 6,
+      "from": "bc1q5a8q9xxr33gqpq4l9ms87mj7fcyqygd7ce76xz",
+      "to": "bc1qtzwwmgmtzcx46y55kmh5wqc8vvctqpqk69qc6r",
+      "amount": 0.58600128,
+      "timestamp": 1789211318,
+      "tx_hash": "bb9e435baad41d012da148928c9505cc81e1b65b43367632f82745f90d6282b7",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 6,
+      "from": "bc1q5a8q9xxr33gqpq4l9ms87mj7fcyqygd7ce76xz",
+      "to": "bc1q2t8gp65809e8akgfnegqmadjjm9kpx686tmzkd",
+      "amount": 0.23926767,
+      "timestamp": 1789211318,
+      "tx_hash": "c5f8c65f6ca53bb48df2d8be47974887a2f3204d62b63c780b2cda57b277f3db",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 7,
+      "from": "bc1q2t8gp65809e8akgfnegqmadjjm9kpx686tmzkd",
+      "to": "1MLvwa496tU8uuRRKyCE7mUBXdW7xvDE9S",
+      "amount": 0.35669769,
+      "timestamp": 1789216026,
+      "tx_hash": "83a392a98b84852dad5322339a9363daf58025b26136a6aa9cbd30d1d701608e",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 8,
+      "from": "1MLvwa496tU8uuRRKyCE7mUBXdW7xvDE9S",
+      "to": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "amount": 3.9998174,
+      "timestamp": 1789749973,
+      "tx_hash": "2765a538d462eb32aa7f399dd0a48206216f95c5d08da432553ea39cda0e4bf0",
+      "profile": "[VERIFIED VASP: BINANCE (Global - EXCHANGE)]"
+    },
+    {
+      "hop": 8,
+      "from": "1MLvwa496tU8uuRRKyCE7mUBXdW7xvDE9S",
+      "to": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "amount": 1.99982038,
+      "timestamp": 1789785943,
+      "tx_hash": "0bea1e79cf17716622059d9c52908074c267b7b156c3689c71ad2471216c0332",
+      "profile": "[VERIFIED VASP: BINANCE (Global - EXCHANGE)]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qpdk469khg88sm2yhmpk5hyypcvqhfjcfftw9vz",
+      "to": "3BZyTYXjLqns5tVNr2Szqc4rLbmSwV7QD8",
+      "amount": 0.00033745,
+      "timestamp": 1784839451,
+      "tx_hash": "1c48abcb2e0e9332c07b8e35578aad0ee1881da6856e4bb00cf98789b66ee848",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 2,
+      "from": "3BZyTYXjLqns5tVNr2Szqc4rLbmSwV7QD8",
+      "to": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "amount": 0.00029933,
+      "timestamp": 1784841132,
+      "tx_hash": "f24347ccd4f2a4688db9023018365d60cee267dcf92fd295438480835031ff49",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "to": "bc1qwdpr0yp35tejdr2aa9999zkle24s9sxk0c8rna",
+      "amount": 0.09602364,
+      "timestamp": 1789822375,
+      "tx_hash": "31885b5d475badcbe028b7d7a489f445cee247d281e1eebfdf8454f9ccd4b9c9",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "to": "1QBaAwtmxaxuzLEHTM9YyN8vBwmZyyFfWc",
+      "amount": 0.06556184,
+      "timestamp": 1789822375,
+      "tx_hash": "e9bdcfebce596a929164b810b0255bd4f9609a55808737af727056bc79f2a1d6",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 4,
+      "from": "1QBaAwtmxaxuzLEHTM9YyN8vBwmZyyFfWc",
+      "to": "bc1qs0z0s2yaf99x7h2pemx8se34uttqytl5ejjj7q",
+      "amount": 0.001414,
+      "timestamp": 1789822377,
+      "tx_hash": "7976e0dd2faf4aef14e3cff87da1d4cba7404250435a8565c7a28d1a72bfb32f",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "case_id": "VASP-20260929_105140",
+  "generated_at": "2026-09-29T05:22:03.942353+00:00",
+  "suspect_wallet": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+  "coin": "BTC",
+  "hops_traced": 6,
+  "total_inflow": 0.00316252,
+  "total_outflow": 0.00398676,
+  "risk_assessment": {
+    "composite_score": 29,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [
+      {
+        "code": "TYP-GATEWAY-01",
+        "title": "Regulated Custodial VASP Gateway",
+        "severity": "LOW",
+        "base_threat_weight": 5,
+        "statutory_reference": "Section 91 CrPC / Section 94 Bharatiya Nagarik Suraksha Sanhita (BNSS) 2023",
+        "guidance": "Serve statutory preservation & account-freeze notice under Section 91 CrPC / 94 BNSS to Exchange Nodal Desk."
+      }
+    ],
+    "high_risk_alerts": [],
+    "risk_score": 29
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [
+    {
+      "hop": 3,
+      "address": "34or6TK23ncQ2dFn4JpNPTNqT7RFC8aYNP",
+      "vasp_name": "Kraken",
+      "jurisdiction": "United States",
+      "compliance_email": "compliance@kraken.com",
+      "acc_score": 0.85,
+      "paes_score": 0.7,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "bc1q3dmqcsxm7wln9t8a70p67t3ns9glr9xecfhy0a",
+      "amount": 0.00059381,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1789531146,
+      "tx_hash": "35653e86eb5fbde12b5687b63e4bfebcf5a0b01822792fd8bee2579d98bfef85",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "32ceALGB39XyVToMwo5gCfCkW1mMS4zueh",
+      "amount": 0.0005059,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790641112,
+      "tx_hash": "42a6fe90f37d832eb4778e8e98a73ca810d66795109f4e599a52bbb679322c4d",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "32ceALGB39XyVToMwo5gCfCkW1mMS4zueh",
+      "to": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "amount": 0.00047458,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790642712,
+      "tx_hash": "ee04aab17b69bcc8575ca5e2f7bb92132d29d03c8ecdd824b6c961f2e3304d52",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "to": "34or6TK23ncQ2dFn4JpNPTNqT7RFC8aYNP",
+      "amount": 1.0,
+      "acc_score": 0.95,
+      "paes_score": 0.7,
+      "timestamp": 1790659315,
+      "tx_hash": "4f35ddbde9441ad0893677aa65950931d853f958402ffef82d3ff948878d789b",
+      "profile": "[VERIFIED VASP: KRAKEN | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "to": "17vgtmJJNnqC9Vscg9dSJkNJoZJ5QUqTJc",
+      "amount": 0.03982172,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790658862,
+      "tx_hash": "ab26931d7da17b2df38c40c5547a5cc6ddb32a7e63c48b54c00b6cdf51ca3fd8",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "bc1qsf59zxg9r926877xwc2wpcd76p078t3awjqafm",
+      "amount": 0.00041529,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1789495477,
+      "tx_hash": "439fccb31763642acfb66d23b6a38a33917414a4853568e130a0c79852f0be86",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ],
+  "suspect_address": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+  "blockchain": "BTC",
+  "duration_seconds": 23.99,
+  "on_chain_summary": {
+    "total_inflow": 0.00316252,
+    "total_outflow": 0.00398676,
+    "inflow_count": 9,
+    "outflow_count": 16,
+    "transfers_traced": 6
+  }
+}

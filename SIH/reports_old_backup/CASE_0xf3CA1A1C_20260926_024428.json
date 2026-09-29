@@ -1,0 +1,221 @@
+{
+  "case_id": "CASE_0xf3CA1A1C_20260926_024428",
+  "generated_at": "2026-09-25T21:14:28.869979+00:00",
+  "suspect_wallet": "0xf3CA1A1Caf28275d6ee51ac4e3eD0a29d0c4b1B6",
+  "coin": "ETH",
+  "hops_traced": 12,
+  "total_inflow": 1.2427305,
+  "total_outflow": 1.09767326,
+  "risk_assessment": {
+    "composite_score": 87,
+    "risk_level": "CRITICAL",
+    "verdict": "Risk Level: CRITICAL | Typology: Peeling Chain & Rapid Layering + Cross-Chain Bridge Hopping + Multi-Hop Structured Layering",
+    "typologies": [
+      {
+        "code": "TYP-PEEL-01",
+        "title": "Peeling Chain & Rapid Layering",
+        "severity": "HIGH",
+        "base_threat_weight": 60,
+        "statutory_reference": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "guidance": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      },
+      {
+        "code": "TYP-XCHAIN-01",
+        "title": "Cross-Chain Bridge Hopping",
+        "severity": "MEDIUM",
+        "base_threat_weight": 45,
+        "statutory_reference": "FIU-IND Red Flag Indicator — Cross-Chain Capital Flight",
+        "guidance": "Decode cross-chain relayer deposit/fill transaction logs to follow funds on the destination ledger."
+      },
+      {
+        "code": "TYP-GATEWAY-01",
+        "title": "Regulated Custodial VASP Gateway",
+        "severity": "LOW",
+        "base_threat_weight": 5,
+        "statutory_reference": "Section 91 CrPC / Section 94 Bharatiya Nagarik Suraksha Sanhita (BNSS) 2023",
+        "guidance": "Serve statutory preservation & account-freeze notice under Section 91 CrPC / 94 BNSS to Exchange Nodal Desk."
+      },
+      {
+        "code": "TYP-LAYER-01",
+        "title": "Multi-Hop Structured Layering",
+        "severity": "MEDIUM",
+        "base_threat_weight": 35,
+        "statutory_reference": "PMLA Section 12 — Suspicious Transaction Report (STR) Indicator",
+        "guidance": "Trace forward until a custodial VASP / KYC gateway is identified for Section 91 CrPC notice."
+      }
+    ],
+    "high_risk_alerts": [
+      {
+        "hop": 2,
+        "entity": "0xf77e14456857f4fad3abdc9f922277db60e6a588",
+        "typology": "Peeling Chain & Rapid Layering",
+        "statutory_ref": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "severity": "HIGH",
+        "action": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      },
+      {
+        "hop": 3,
+        "entity": "0xc7b2ea7b796baaba8698f627772f4ec30fffe288",
+        "typology": "Peeling Chain & Rapid Layering",
+        "statutory_ref": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "severity": "HIGH",
+        "action": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      },
+      {
+        "hop": 4,
+        "entity": "0x173810f8ca9c4c631aeb1d6c36d007f054fee980",
+        "typology": "Peeling Chain & Rapid Layering",
+        "statutory_ref": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "severity": "HIGH",
+        "action": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      }
+    ]
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [
+    {
+      "hop": 4,
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "vasp_name": "Binance",
+      "jurisdiction": "Global",
+      "compliance_email": "compliance@binance.com",
+      "acc_score": 0.95,
+      "paes_score": 0.6,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0xf3CA1A1Caf28275d6ee51ac4e3eD0a29d0c4b1B6",
+      "to": "0xabf2fbc929aa44ea24130c3af6f9679ee7068ff4",
+      "amount": 0.13767874,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790369411,
+      "tx_hash": "0x75fbeb5603a12a9a3e87688d0a12f92d234a45d878ad80cfaa94cf06c00c4898",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "0xabf2fbc929aa44ea24130c3af6f9679ee7068ff4",
+      "to": "0x7f7786f189e3de6163e395f1615770b34ac8e35d",
+      "amount": 0.13767366,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790369423,
+      "tx_hash": "0x253d2e48b4084e237d350cf7c9050609658e7e0d766e4fcedd9f7607e95f37da",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "0xf3CA1A1Caf28275d6ee51ac4e3eD0a29d0c4b1B6",
+      "to": "0x729c49332a39039fe296ca7e7a72d4a29002cfde",
+      "amount": 0.09550193,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790369543,
+      "tx_hash": "0x644a4d17fd1d43007ac08af14245af509a381c345768a2310c48618d1222c5d8",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "0x729c49332a39039fe296ca7e7a72d4a29002cfde",
+      "to": "0xf77e14456857f4fad3abdc9f922277db60e6a588",
+      "amount": 0.01861539,
+      "acc_score": 0.85,
+      "paes_score": 0.8,
+      "timestamp": 1790369783,
+      "tx_hash": "0xc5376e6a96818dcec1b9801fd2d18560fd1115028c4641d1387cf2822b4aa5a8",
+      "profile": "[PEELING CHAIN & RAPID LAYERING | RISK: HIGH]"
+    },
+    {
+      "hop": 3,
+      "from": "0xf77e14456857f4fad3abdc9f922277db60e6a588",
+      "to": "0xc7b2ea7b796baaba8698f627772f4ec30fffe288",
+      "amount": 0.01859036,
+      "acc_score": 0.85,
+      "paes_score": 0.7,
+      "timestamp": 1790369879,
+      "tx_hash": "0x2301402384fc8a142b5993f02cc257ce86590e04f8b2dbe222d1e274a3e7faee",
+      "profile": "[PEELING CHAIN & RAPID LAYERING | RISK: MEDIUM]"
+    },
+    {
+      "hop": 4,
+      "from": "0xc7b2ea7b796baaba8698f627772f4ec30fffe288",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.0,
+      "acc_score": 0.95,
+      "paes_score": 0.6,
+      "timestamp": 1790370527,
+      "tx_hash": "0xb6af6f12467e10f64b9acfc0098d551a396370e8ff0ab4efb27317b8722dfdf8",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0xf3CA1A1Caf28275d6ee51ac4e3eD0a29d0c4b1B6",
+      "to": "0x08b233f6179202cf89015a3d4c0475fe8e19ede6",
+      "amount": 0.07424208,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790366591,
+      "tx_hash": "0x16b19c9a879fcb883999bbb5014f54e29ee4a2387270ea2da260199102e837f0",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "0x08b233f6179202cf89015a3d4c0475fe8e19ede6",
+      "to": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+      "amount": 0.07480733,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790366831,
+      "tx_hash": "0xffdce924aaec0236e56df838a2046b6a7fb42626530c7c11032886c74132acd4",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+      "to": "0x56df0bba3d324de9892f20f97e82f08fcd914f0e",
+      "amount": 72.66906,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790369375,
+      "tx_hash": "0xc29b45496ac224af7eee1d5097e4dbaf0f0b00aa7cc5a3b86a9586b16924e6dc",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 4,
+      "from": "0x56df0bba3d324de9892f20f97e82f08fcd914f0e",
+      "to": "0x173810f8ca9c4c631aeb1d6c36d007f054fee980",
+      "amount": 342.32094,
+      "acc_score": 0.85,
+      "paes_score": 0.6,
+      "timestamp": 1790369375,
+      "tx_hash": "0x223e422010f165c14ec383c52409f4777cb09fa8674d0fac4795ab4959acef9f",
+      "profile": "[PEELING CHAIN & RAPID LAYERING | RISK: MEDIUM]"
+    },
+    {
+      "hop": 3,
+      "from": "0xa9ac43f5b5e38155a288d1a01d2cbc4478e14573",
+      "to": "0xf352dbca3a7ce703eae7866f24b241e1b941a506",
+      "amount": 2.89874499,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790369351,
+      "tx_hash": "0x28dbc457960b1f5f5da5b716197de1e497bf9ec99ec62c4019807931e3c93ecf",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 4,
+      "from": "0xf352dbca3a7ce703eae7866f24b241e1b941a506",
+      "to": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "amount": 2.89873405,
+      "acc_score": 0.95,
+      "paes_score": 0.6,
+      "timestamp": 1790369579,
+      "tx_hash": "0x4466d8ce2878015b525e66ddccc0791f1a6edebe4c4f57a82383abf13b10bc3f",
+      "profile": "[VERIFIED VASP: BINANCE | RISK: LOW]"
+    }
+  ]
+}

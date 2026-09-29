@@ -1,0 +1,53 @@
+{
+  "case_id": "CASE_bc1qpfw8hm_20260919_194159",
+  "generated_at": "2026-09-19T14:11:59.023577+00:00",
+  "suspect_wallet": "bc1qpfw8hmpcyuwz6fca9yfn35kcgnqh59xm8c3x24",
+  "coin": "BTC",
+  "hops_traced": 3,
+  "total_inflow": 0.00971707,
+  "total_outflow": 0.00970861,
+  "risk_assessment": {
+    "composite_score": 20,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1qpfw8hmpcyuwz6fca9yfn35kcgnqh59xm8c3x24",
+      "to": "bc1qk0yx5kdurz6lad98wxuu9x800lu7j7ffhppmg3",
+      "amount": 0.00970861,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1789394566,
+      "tx_hash": "15f7260363003aad49660f0863a4ef6a896af2abcbf5c69186ee809edc8f3224",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "bc1qk0yx5kdurz6lad98wxuu9x800lu7j7ffhppmg3",
+      "to": "3LddaNKHGbtB8JXfHX1YTz9owuSHpdT1aX",
+      "amount": 0.00365517,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1789398145,
+      "tx_hash": "a9b637678d313b87a39c3005869ae109a90fc76ce60786f9921e430778308939",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "bc1qk0yx5kdurz6lad98wxuu9x800lu7j7ffhppmg3",
+      "to": "3LddaNKHGbtB8JXfHX1YTz9owuSHpdT1aX",
+      "amount": 0.000485,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1789773185,
+      "tx_hash": "a71ba086619b7753951b43123c40d12807be888305db31ff34ada3ac2961d3ba",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ]
+}

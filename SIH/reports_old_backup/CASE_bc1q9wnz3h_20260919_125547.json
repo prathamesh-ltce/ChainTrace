@@ -1,0 +1,268 @@
+{
+  "case_id": "VASP-20260919_125547",
+  "generated_at": "2026-09-19T12:55:47.955549+00:00",
+  "engine": "Automated Blockchain Forensic & VASP Attribution Engine (Zero API Keys)",
+  "graph_engine": "TransactionGraphBackend (C++ CSR Graph + Microsecond BFS)",
+  "cpp_engine_stats": {
+    "nodesCount": 21,
+    "edgesCount": 20,
+    "nodesVisited": 21,
+    "edgesExamined": 22,
+    "executionTimeUs": 12,
+    "truncated": false
+  },
+  "suspect_address": "bc1q9wnz3hjqt4mms7ed7ap57zhcv5psmt63kg8gfh",
+  "blockchain": "BTC",
+  "max_hops_traced": 15,
+  "duration_seconds": 65.35,
+  "on_chain_summary": {
+    "total_inflow": 0.06866266,
+    "total_outflow": 0.06812665,
+    "inflow_count": 11,
+    "outflow_count": 14,
+    "transfers_traced": 22
+  },
+  "risk_assessment": {
+    "risk_score": 20,
+    "risk_level": "LOW",
+    "typologies": [
+      "Structured Layering (Multiple intermediary hops)"
+    ],
+    "mixer_detected": false,
+    "darknet_detected": false,
+    "betting_detected": false,
+    "bridge_detected": false
+  },
+  "vasp_targets": [
+    {
+      "hop": 5,
+      "address": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "vasp_name": "Binance",
+      "jurisdiction": "Global",
+      "compliance_email": "compliance@binance.com",
+      "acc_score": 0.85,
+      "paes_score": 0.6,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 5,
+      "address": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "vasp_name": "Binance",
+      "jurisdiction": "Global",
+      "compliance_email": "compliance@binance.com",
+      "acc_score": 0.85,
+      "paes_score": 0.6,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 4,
+      "address": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "vasp_name": "Binance",
+      "jurisdiction": "Global",
+      "compliance_email": "compliance@binance.com",
+      "acc_score": 0.85,
+      "paes_score": 0.6,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1q9wnz3hjqt4mms7ed7ap57zhcv5psmt63kg8gfh",
+      "to": "bc1qjn7e2xk99m4g4d4j3hszxqfh4uk585jq5m6dt7",
+      "amount": 0.02125592,
+      "timestamp": 1789239507,
+      "tx_hash": "4c4098120ec8ad2cf14d0b17dc2ca793ef413c008edc56b9fa5d50f0e6baca04",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 2,
+      "from": "bc1qjn7e2xk99m4g4d4j3hszxqfh4uk585jq5m6dt7",
+      "to": "bc1qvgwtu2k0edlxqt7xv2tekas8qftk0t2ed46l9y",
+      "amount": 0.000347,
+      "timestamp": 1789822477,
+      "tx_hash": "e1cfdf04db87fe83e5412c77a1fe38db318db938ed35ba88f38499e09df5fbe9",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "bc1qvgwtu2k0edlxqt7xv2tekas8qftk0t2ed46l9y",
+      "to": "bc1qzmtn0q92ayejt2hpffvlktcpmyy7vvsd06sefu",
+      "amount": 0.00039302,
+      "timestamp": 1789835732,
+      "tx_hash": "1211964db41915439bc75fc4a6c3ac24d8d763d64fd207a7387d28795345b044",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "bc1qvgwtu2k0edlxqt7xv2tekas8qftk0t2ed46l9y",
+      "to": "bc1q0fycgp9sta5a2m9weh4y4nc8u257l33p5tzykc",
+      "amount": 0.00038709,
+      "timestamp": 1789838978,
+      "tx_hash": "8bd05e88d969bdcb903867e837ab2d5f5a79f41de8fef6142f0437aa4611b550",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 4,
+      "from": "bc1q0fycgp9sta5a2m9weh4y4nc8u257l33p5tzykc",
+      "to": "bc1q8kaht9suldvmhpn9vcmtepsh53ne9q4fdcjrhy",
+      "amount": 15.00006136,
+      "timestamp": 1789840049,
+      "tx_hash": "83649682325ee593268a53dd0819820f289f78673be673f448c8ceb098942e1c",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 5,
+      "from": "bc1q8kaht9suldvmhpn9vcmtepsh53ne9q4fdcjrhy",
+      "to": "1AVDTMEFsKRULM3mjxEHM3idU9dJuYGHhG",
+      "amount": 15.0,
+      "timestamp": 1789840049,
+      "tx_hash": "6f55bcd4031c9788adaf51a9f5e833c21c96dbc7df853a954735637dc2aa72c9",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1q9wnz3hjqt4mms7ed7ap57zhcv5psmt63kg8gfh",
+      "to": "bc1qeagnsqsm5h66z9dgg8wvt58dwtxcn65hg9jp5p",
+      "amount": 0.00763839,
+      "timestamp": 1786598051,
+      "tx_hash": "40f4deb01b8f0d731ce26990f2e973669113ae0742d1a8a940760bbea35a13ae",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 2,
+      "from": "bc1qeagnsqsm5h66z9dgg8wvt58dwtxcn65hg9jp5p",
+      "to": "181MwaNUMatYbfarURsDs7WmbxD4j3e3C",
+      "amount": 0.01054662,
+      "timestamp": 1787770954,
+      "tx_hash": "90f9113d181a029ac31c71cdbd3015d6ec25ab922135e1f8d709d7afcacc60f8",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "181MwaNUMatYbfarURsDs7WmbxD4j3e3C",
+      "to": "1GrwDkr33gT6LuumniYjKEGjTLhsL5kmqC",
+      "amount": 0.00936174,
+      "timestamp": 1787771625,
+      "tx_hash": "c605f4e321311b9af785c6ad75ec9d7d55d375ffe33ba78294daf5c9f90e2192",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 4,
+      "from": "1GrwDkr33gT6LuumniYjKEGjTLhsL5kmqC",
+      "to": "bc1q2q8f406gak2wjyc2yp63vtru07ddffjqj6v7pp",
+      "amount": 119.25450823,
+      "timestamp": 1789838978,
+      "tx_hash": "cff13e6c68fd92150e8551546d63cb8677a7627612f6d7dd2b5fc5ee8e94d22a",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 4,
+      "from": "1GrwDkr33gT6LuumniYjKEGjTLhsL5kmqC",
+      "to": "1P7oa4iwfJfmpsZr1QL5wbGGQA5BrvBEEN",
+      "amount": 13.57309921,
+      "timestamp": 1789840784,
+      "tx_hash": "60d6e904ec17fe84443503b8d3ea6e09dc6ed185c4f5c30d2c092d751094e5ce",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1q9wnz3hjqt4mms7ed7ap57zhcv5psmt63kg8gfh",
+      "to": "1EVryAntQmHCoqrEraFhFXvTbkBpzTEFxM",
+      "amount": 0.00695648,
+      "timestamp": 1787180366,
+      "tx_hash": "5f5870e315cb44ae0a9a0f3718a13efb334842dca58d4db9103348fefae644b5",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 2,
+      "from": "1EVryAntQmHCoqrEraFhFXvTbkBpzTEFxM",
+      "to": "12XZMdaAGmcHf4ocFSqpd8jFd1WH7RHUPs",
+      "amount": 0.00559543,
+      "timestamp": 1788276652,
+      "tx_hash": "22e5c54b426c55db98110e3a1fde3c7b6b88f48a4dfbbbfb12f04cdf472c010b",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "12XZMdaAGmcHf4ocFSqpd8jFd1WH7RHUPs",
+      "to": "bc1qlnealgkxu438syerjc3sqjrwp8ey7tjl20zhmf",
+      "amount": 119.29078224,
+      "timestamp": 1789833108,
+      "tx_hash": "b316fa7940680154f55bed32347cb7a74e1b64a35723d480afb149baad5c9895",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "12XZMdaAGmcHf4ocFSqpd8jFd1WH7RHUPs",
+      "to": "bc1q9psj8es5zj66ktat6q7zs3acu9uugen8xsymy8",
+      "amount": 112.05496268,
+      "timestamp": 1789840049,
+      "tx_hash": "6060620288d59d4fd98616830ac16d27b2231b82a81e39ccd573115422cd8ebb",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 2,
+      "from": "1EVryAntQmHCoqrEraFhFXvTbkBpzTEFxM",
+      "to": "1DLeNApsHNNzUMNZJVoXeyEY5sdp8vzx3w",
+      "amount": 0.00446987,
+      "timestamp": 1788855402,
+      "tx_hash": "15aa5cf72f953eb54de9ab866b1ea91d786ba8ea17958ee9733dc392e09b6591",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 3,
+      "from": "1DLeNApsHNNzUMNZJVoXeyEY5sdp8vzx3w",
+      "to": "bc1qrlv2m6qfmmpf6y8q88dqvz9m743lu3rjm3gcmh",
+      "amount": 122.8674513,
+      "timestamp": 1789830619,
+      "tx_hash": "99e2e29a0b59fb36ebfbd0dcbdd51867e118ada9bb3f4e926f1a4cbcb8fd04c2",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 4,
+      "from": "bc1qrlv2m6qfmmpf6y8q88dqvz9m743lu3rjm3gcmh",
+      "to": "122beJtx7zPx79nnKcMfYxHEhM2jHsYwK8",
+      "amount": 0.00185892,
+      "timestamp": 1789832671,
+      "tx_hash": "e607d9e487cb330061e559da64b946b626110c2f49f19143b0ce8c6a6847b470",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 5,
+      "from": "122beJtx7zPx79nnKcMfYxHEhM2jHsYwK8",
+      "to": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "amount": 0.74956805,
+      "timestamp": 1789839014,
+      "tx_hash": "f7249869ed167ef0188908f45728a828fa7b08a1dc3a3f3d7f3dfcda958be5a0",
+      "profile": "[VERIFIED VASP: BINANCE (Global - EXCHANGE)]"
+    },
+    {
+      "hop": 5,
+      "from": "122beJtx7zPx79nnKcMfYxHEhM2jHsYwK8",
+      "to": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "amount": 0.72908187,
+      "timestamp": 1789836615,
+      "tx_hash": "f65643fb6ec9341825d6996c3df8e1e883caf52893854de70758a3f011e45873",
+      "profile": "[VERIFIED VASP: BINANCE (Global - EXCHANGE)]"
+    },
+    {
+      "hop": 3,
+      "from": "1DLeNApsHNNzUMNZJVoXeyEY5sdp8vzx3w",
+      "to": "1KbDEg1tDz2ErYgaDbaDhhawnLrSQFaFx5",
+      "amount": 6.15824622,
+      "timestamp": 1789828341,
+      "tx_hash": "b7c42a35417aa041c89cf534ca7e32e6012c97511c962be3470c199f868194bc",
+      "profile": "[UNHOSTED / INTERMEDIARY]"
+    },
+    {
+      "hop": 4,
+      "from": "1KbDEg1tDz2ErYgaDbaDhhawnLrSQFaFx5",
+      "to": "bc1qm34lsc65zpw79lxes69zkqmk6ee3ewf0j77s3h",
+      "amount": 95.69986036,
+      "timestamp": 1789836615,
+      "tx_hash": "5421eadb8f0a1b0994fa88587e2e32cfca777541bbad0a2655112ac5bf8b76a7",
+      "profile": "[VERIFIED VASP: BINANCE (Global - EXCHANGE)]"
+    }
+  ]
+}

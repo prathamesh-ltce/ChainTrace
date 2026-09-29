@@ -1,0 +1,115 @@
+{
+  "case_id": "VASP-20260919_134625",
+  "generated_at": "2026-09-19T13:46:25.047985+00:00",
+  "engine": "Automated Blockchain Forensic & VASP Attribution Engine (Zero API Keys)",
+  "graph_engine": "TransactionGraphBackend (C++ CSR Graph + Microsecond BFS)",
+  "cpp_engine_stats": {
+    "nodesCount": 3,
+    "edgesCount": 2,
+    "nodesVisited": 3,
+    "edgesExamined": 3,
+    "executionTimeUs": 2,
+    "truncated": false
+  },
+  "suspect_address": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+  "blockchain": "ETH",
+  "max_hops_traced": 15,
+  "duration_seconds": 10.49,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 0.09,
+    "inflow_count": 0,
+    "outflow_count": 50,
+    "transfers_traced": 5
+  },
+  "risk_assessment": {
+    "risk_score": 25,
+    "risk_level": "LOW",
+    "typologies": [
+      "Cross-Chain Obfuscation via DeFi Bridge"
+    ],
+    "mixer_detected": false,
+    "darknet_detected": false,
+    "betting_detected": false,
+    "bridge_detected": true,
+    "peeling_chain_detected": false
+  },
+  "cross_chain_hops": [
+    {
+      "protocol": "Across Protocol",
+      "status": "FILLED",
+      "origin_chain": "ETH",
+      "origin_tx_hash": "0x5f36a771bfb6e3d3a5a1982bcb3435d104ce9c2a4ffb1146464e88e1942619d4",
+      "origin_chain_id": 1,
+      "destination_chain_id": 4663,
+      "destination_chain_name": "Robinhood Chain",
+      "destination_symbol": "ROBINHOOD",
+      "fill_tx_hash": "0xf8a1153ddf47bf5aafaef51665f0be7ac097a0f77443e5915a4db2ea37837f2b",
+      "recipient": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.06998228442310052,
+      "deposit_id": "4607297"
+    },
+    {
+      "protocol": "Across Protocol",
+      "status": "FILLED",
+      "origin_chain": "ETH",
+      "origin_tx_hash": "0x791c33408d1c49bf0c9d1f357ec0587f4f6da7297b1e3d113e5a5454ab357ce3",
+      "origin_chain_id": 1,
+      "destination_chain_id": 4663,
+      "destination_chain_name": "Robinhood Chain",
+      "destination_symbol": "ROBINHOOD",
+      "fill_tx_hash": "0x32dd9597d1203401b2250af3e2d733aa8dbc908268562ae46d302c53c0fdb181",
+      "recipient": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.019984962166046203,
+      "deposit_id": "4601689"
+    }
+  ],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "amount": 0.07,
+      "timestamp": 1789748843,
+      "tx_hash": "0x5f36a771bfb6e3d3a5a1982bcb3435d104ce9c2a4ffb1146464e88e1942619d4",
+      "profile": "[DEFI BRIDGE: ACROSS PROTOCOL]"
+    },
+    {
+      "hop": 2,
+      "from": "0x5c7bcd... (Across Protocol)",
+      "to": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.06998228442310052,
+      "timestamp": 1789748843,
+      "tx_hash": "0xf8a1153ddf47bf5aafaef51665f0be7ac097a0f77443e5915a4db2ea37837f2b",
+      "profile": "[DESTINATION RECIPIENT on Robinhood Chain]"
+    },
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "amount": 0.02,
+      "timestamp": 1789693943,
+      "tx_hash": "0x791c33408d1c49bf0c9d1f357ec0587f4f6da7297b1e3d113e5a5454ab357ce3",
+      "profile": "[DEFI BRIDGE: ACROSS PROTOCOL]"
+    },
+    {
+      "hop": 2,
+      "from": "0x5c7bcd... (Across Protocol)",
+      "to": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.019984962166046203,
+      "timestamp": 1789693943,
+      "tx_hash": "0x32dd9597d1203401b2250af3e2d733aa8dbc908268562ae46d302c53c0fdb181",
+      "profile": "[DESTINATION RECIPIENT on Robinhood Chain]"
+    },
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x0de8bf93da2f7eecb3d9169422413a9bef4ef628",
+      "amount": 0.0,
+      "timestamp": 1789844183,
+      "tx_hash": "0x258dfdd844c9a02c3e3c646dee9dfd55b4f34c75811659aff215114f6e40eec9",
+      "profile": ""
+    }
+  ]
+}

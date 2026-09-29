@@ -1,0 +1,138 @@
+{
+  "case_id": "CASE_bc1qt7ccxz_20260929_110205",
+  "generated_at": "2026-09-29T05:32:05.046360+00:00",
+  "suspect_wallet": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+  "coin": "BTC",
+  "hops_traced": 8,
+  "total_inflow": 0.0028656,
+  "total_outflow": 0.00398676,
+  "inflow_count": 9,
+  "outflow_count": 16,
+  "on_chain_summary": {
+    "total_inflow": 0.0028656,
+    "total_outflow": 0.00398676,
+    "inflow_count": 9,
+    "outflow_count": 16,
+    "transfers_traced": 8
+  },
+  "risk_assessment": {
+    "risk_score": 29,
+    "composite_score": 29,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [
+      {
+        "code": "TYP-GATEWAY-01",
+        "title": "Regulated Custodial VASP Gateway",
+        "severity": "LOW",
+        "base_threat_weight": 5,
+        "statutory_reference": "Section 91 CrPC / Section 94 Bharatiya Nagarik Suraksha Sanhita (BNSS) 2023",
+        "guidance": "Serve statutory preservation & account-freeze notice under Section 91 CrPC / 94 BNSS to Exchange Nodal Desk."
+      }
+    ],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [
+    {
+      "hop": 3,
+      "address": "34or6TK23ncQ2dFn4JpNPTNqT7RFC8aYNP",
+      "vasp_name": "Kraken",
+      "jurisdiction": "International",
+      "compliance_email": "compliance@kraken.com",
+      "acc_score": 0.95,
+      "paes_score": 0.7,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "bc1qtk5hqmfcdfy4mpdm77arlewfdlldh6gt2xhyd8",
+      "amount": 0.00036555,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790659500,
+      "tx_hash": "51f96582ae35b0d64a4c713fd7e3ee37486dad7724f67baab6850d15663d7ab3",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "32ceALGB39XyVToMwo5gCfCkW1mMS4zueh",
+      "amount": 0.0005059,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790641112,
+      "tx_hash": "42a6fe90f37d832eb4778e8e98a73ca810d66795109f4e599a52bbb679322c4d",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "32ceALGB39XyVToMwo5gCfCkW1mMS4zueh",
+      "to": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "amount": 0.00047458,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790642712,
+      "tx_hash": "ee04aab17b69bcc8575ca5e2f7bb92132d29d03c8ecdd824b6c961f2e3304d52",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "to": "34or6TK23ncQ2dFn4JpNPTNqT7RFC8aYNP",
+      "amount": 1.0,
+      "acc_score": 0.95,
+      "paes_score": 0.7,
+      "timestamp": 1790659500,
+      "tx_hash": "4f35ddbde9441ad0893677aa65950931d853f958402ffef82d3ff948878d789b",
+      "profile": "[VERIFIED VASP: KRAKEN | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "3KMmeqPeQcngyTehdfSwsGqvxfU7J7qtc8",
+      "to": "bc1q4n5vpp6n3mt67260qvsnywlas6u4ycwgwxtkt3",
+      "amount": 0.07516607,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790659720,
+      "tx_hash": "8745cd3f3305f28508267014c9bf69f4149ac498db3f43f5b78a17a72d71c129",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "3MHK8Kw5JMSKxb3yYK5zPQH4BBxgTd689v",
+      "amount": 0.00023583,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790641112,
+      "tx_hash": "31de5e554d143b08622b25b1ad4175f83a369c00d0f44755af9c354d07b344c0",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "bc1qu8el3wesfn3zgrxa6mh502uv7dfzjk68hy2h26",
+      "amount": 5.496e-05,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790487313,
+      "tx_hash": "857ab2d19e20eb595b2d9721e9ea4d9e60a7eeb24844ad4985cfe1efa2f64cb3",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "35mtkwaiahXqM1W3mE21b6cJQwEyuFbs3F",
+      "amount": 0.00030818,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790486867,
+      "tx_hash": "61ccfffb3432377085e0360fce8f3359c61dac446db684ced65ce6e78cf2c170",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ]
+}

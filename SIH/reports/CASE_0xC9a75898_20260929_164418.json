@@ -1,0 +1,41 @@
+{
+  "case_id": "CASE_0xC9a75898_20260929_164418",
+  "generated_at": "2026-09-29T11:14:18.999993+00:00",
+  "suspect_wallet": "0xC9a75898a0b74E23b193885E57134C69ACdd4E3c",
+  "coin": "ETH",
+  "hops_traced": 1,
+  "total_inflow": 0,
+  "total_outflow": 0.0,
+  "inflow_count": 0,
+  "outflow_count": 50,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 0.0,
+    "inflow_count": 0,
+    "outflow_count": 50,
+    "transfers_traced": 1
+  },
+  "risk_assessment": {
+    "risk_score": 20,
+    "composite_score": 20,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0xC9a75898a0b74E23b193885E57134C69ACdd4E3c",
+      "to": "0x278d858f05b94576c1e6f73285886876ff6ef8d2",
+      "amount": 0.0,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790680415,
+      "tx_hash": "0x72a858386c6ef5521a19a5579772e811746f8f2ddb2a9480d845cf31ebaa47bb",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ]
+}

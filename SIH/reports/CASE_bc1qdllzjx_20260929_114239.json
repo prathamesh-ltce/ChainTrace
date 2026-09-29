@@ -1,0 +1,449 @@
+{
+  "case_id": "CASE_bc1qdllzjx_20260929_114239",
+  "generated_at": "2026-09-29T06:12:39.669948+00:00",
+  "suspect_wallet": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+  "coin": "BTC",
+  "hops_traced": 35,
+  "total_inflow": 21.12859244,
+  "total_outflow": 0.56897131,
+  "inflow_count": 3,
+  "outflow_count": 24,
+  "on_chain_summary": {
+    "total_inflow": 21.12859244,
+    "total_outflow": 0.56897131,
+    "inflow_count": 3,
+    "outflow_count": 24,
+    "transfers_traced": 35
+  },
+  "risk_assessment": {
+    "risk_score": 64,
+    "composite_score": 64,
+    "risk_level": "HIGH",
+    "verdict": "Risk Level: HIGH | Typology: Peeling Chain & Rapid Layering + Multi-Hop Structured Layering",
+    "typologies": [
+      {
+        "code": "TYP-PEEL-01",
+        "title": "Peeling Chain & Rapid Layering",
+        "severity": "HIGH",
+        "base_threat_weight": 60,
+        "statutory_reference": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "guidance": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      },
+      {
+        "code": "TYP-LAYER-01",
+        "title": "Multi-Hop Structured Layering",
+        "severity": "MEDIUM",
+        "base_threat_weight": 35,
+        "statutory_reference": "PMLA Section 12 — Suspicious Transaction Report (STR) Indicator",
+        "guidance": "Trace forward until a custodial VASP / KYC gateway is identified for Section 91 CrPC notice."
+      }
+    ],
+    "high_risk_alerts": [
+      {
+        "hop": 3,
+        "entity": "bc1qu0n0eges9u465tpwyje57pcvsdh0n67zac0wm4",
+        "typology": "Peeling Chain & Rapid Layering",
+        "statutory_ref": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "severity": "HIGH",
+        "action": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      },
+      {
+        "hop": 4,
+        "entity": "3JTT5gtJJKoWba5qVGVKM6aiv9Nipk9QU3",
+        "typology": "Peeling Chain & Rapid Layering",
+        "statutory_ref": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "severity": "HIGH",
+        "action": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      }
+    ]
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "1PwsRvSKnuTGKFdAmvXMnKqakJBsasGtVa",
+      "amount": 0.04705589,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790662288,
+      "tx_hash": "1022ba8900dc0d37b86dadf4aac47397166623c9364d3492667a4f5dd0678fab",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qvy8d4rdtlpwgwpcws9h2ap6z4mzl473tqpcmq4",
+      "amount": 0.00537167,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790662288,
+      "tx_hash": "9893e47dc754c7fd2e63c925c62d395d112d3493cbff25b195d6d877f8cd3f3e",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "3342CwvfEhMjBEcMzHUkbtcYB5kjh8a3n4",
+      "amount": 0.03362068,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790661675,
+      "tx_hash": "a9c31ecc2ec900bb9087805fc7feba199a08430839a19004f595163c18826a6e",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "3342CwvfEhMjBEcMzHUkbtcYB5kjh8a3n4",
+      "to": "bc1q9wvygkq7h9xgcp59mc6ghzczrqlgrj9k3ey9tz",
+      "amount": 0.03352252,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790662299,
+      "tx_hash": "686223a6709ccac6f9418aa31a31fd9e783c0c21aa8337d2034dbee9608db826",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qpv23jge6nwk4wg7pa7w6ndzqnjkma3avg49dew",
+      "amount": 0.0305684,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790661675,
+      "tx_hash": "377ca7baf194c13a14b2f0099c9a8f97673661f3ab2132188b1ad885f4f52bc7",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1q8zg9sey8z5f8ylenmdqkk5xfvcqccuy9rm4hm6",
+      "amount": 0.01154797,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790661675,
+      "tx_hash": "2b48e58b0488b61dbb7891fdfd6e7d7873a254131e46f0ef6d9d9a39f22c96d8",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1q0q5xkkzk732s6thhccjlu6zexm5qkkhgsuv860",
+      "amount": 0.01047829,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790661675,
+      "tx_hash": "e29d0ceb9d4388c4592df296e5fe9b3dfbf4ab32014a27dd46ebc855a398a520",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "1BKUMnbkfzEY1etCXJAfvzV1W63X8wQnpR",
+      "amount": 0.04905594,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790660317,
+      "tx_hash": "bf8ee159a237449518bb7a3e2734dc4c8a86848134d39439cf3f12ce34afda1a",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1q8394z2tupj0duwtkeecfswu60n7a2dcgq7837n",
+      "amount": 0.0399427,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790660317,
+      "tx_hash": "17693472d72caff4d664a9ba8483abad12c71f70e3707baaa0958cbb3f75bde0",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "bc1q8394z2tupj0duwtkeecfswu60n7a2dcgq7837n",
+      "to": "bc1qrhpnrt6p32rm8r8p3fkmjlj22l6cdzj52vjr6c",
+      "amount": 0.03994027,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790661675,
+      "tx_hash": "d000d3105e7ecb6288c408d2ab89ad54cfa1c78e79c95f60da853335a0a4a3f8",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qjerm72rp3g5rq9824pmen4ptxptzvg62cn38y8",
+      "amount": 0.00355315,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790660317,
+      "tx_hash": "b79c6cd348b0f82874549ebb34c109f2e801e2208ab0551b85af7ba6d8cc5a50",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "1nTK9LZouzVBj5tv9MS8BpWbnvHKkwHTy",
+      "amount": 0.02199662,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790659720,
+      "tx_hash": "6b3b5f155d73bb9870fbe2581a81aaecde9e767df176afad37478a7794052076",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "1nTK9LZouzVBj5tv9MS8BpWbnvHKkwHTy",
+      "to": "bc1qhewmcqdzjpmr8ycxcaudpk9s3g49glp7en4uy9",
+      "amount": 0.00705495,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790660317,
+      "tx_hash": "d45c6f890ec2f6eab2168163dd8119b42c0ce2f3494a66521f4471fbb39a020a",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "bc1qhewmcqdzjpmr8ycxcaudpk9s3g49glp7en4uy9",
+      "to": "172tGR4z5TEdXNzYQVXt7NTZDMh79viszH",
+      "amount": 0.09414194,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790661897,
+      "tx_hash": "f50934b98ad1f40fe8ef10649822b5c69a5c48154a164072a545ab4d75f77564",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "bc1qhewmcqdzjpmr8ycxcaudpk9s3g49glp7en4uy9",
+      "to": "bc1qyt4kypxxdp5r80gd3ktf0se9q7xcs84xu3hs47",
+      "amount": 0.07002318,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790661675,
+      "tx_hash": "6ead289bffafbb71499c5f8901e523166e646a537c6cc97006a6e61b2f31d0f6",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "bc1qhewmcqdzjpmr8ycxcaudpk9s3g49glp7en4uy9",
+      "to": "bc1qu0n0eges9u465tpwyje57pcvsdh0n67zac0wm4",
+      "amount": 0.04337462,
+      "acc_score": 0.85,
+      "paes_score": 0.7,
+      "timestamp": 1790660317,
+      "tx_hash": "148e2ce8be648354b9c3272252eee0859a15e0b9ed8fa79f167cafc464bbfa9b",
+      "profile": "[PEELING CHAIN & RAPID LAYERING | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "197G3Ld2pCs5zdGJ4QNARSJEob4NX7rgun",
+      "amount": 0.13084053,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790659500,
+      "tx_hash": "c542c88e95e1ca81bf16501fb09cfc14da7d6a9a09ca2b714a1ac7e4ec11f861",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "18htzmG7orsFTcaEuZjjQGu5qdELfiXUpo",
+      "amount": 0.0480219,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790659500,
+      "tx_hash": "a58a3ca65a0fbbf4562f496a45cb8d3b6ed3f05bc4a4813205b5a2cb50416823",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qdjguz6n86uvzhx0epq4ec5fezx77s95dkl475e",
+      "amount": 0.00940011,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790659500,
+      "tx_hash": "abe81c6d37a54d0ba96b062f4556f796e5dc1d14c41107cd2272b7a3b316e3f6",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qxkw2z6lzpefl7ycfr335vj57zhhvqqfja6w529",
+      "amount": 0.00275396,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790659500,
+      "tx_hash": "2324bdfd4dd2ac163d26fe23451b54e1566a6115d184936449203ae7e491c001",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1q004w6mmuxpguatcf2q02x4ej0s02z4cws6h7s2",
+      "amount": 0.00258999,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790658548,
+      "tx_hash": "d7fbb0cbdac5479085f899b3b8801212fcb538bc18b96658c8ef4cd368d6e2aa",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qss6077wms24dy5uw35tmn2998qa6rfqfy3e0jn",
+      "amount": 0.03445556,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790658241,
+      "tx_hash": "1fbb3f692903cd86de06914613f14796b7c1648da62d48c293616d44c85c1a0f",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "1DyASHQYN4uiFM9CCwXxfzwePao6GHV7y3",
+      "amount": 0.02968461,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790658241,
+      "tx_hash": "20e19bcde24d8e70b0e916ebd32aad3affeb8f6c30ecb219ddac90026048198d",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "1DyASHQYN4uiFM9CCwXxfzwePao6GHV7y3",
+      "to": "1DLeNApsHNNzUMNZJVoXeyEY5sdp8vzx3w",
+      "amount": 0.02261477,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1790658548,
+      "tx_hash": "9985f37ff804c51209cabe6df6e5736614ea2b3d5b74c65b09b658f6e6f46f2b",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "1DLeNApsHNNzUMNZJVoXeyEY5sdp8vzx3w",
+      "to": "bc1q6g0gxd64keje0jc767wvnalcqyznesrqlt66pq",
+      "amount": 21.58444757,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790662346,
+      "tx_hash": "9a45a6c3b51580d33309f4f0b5062a16cba0ae945b808ed8952d8074035207f6",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "1DLeNApsHNNzUMNZJVoXeyEY5sdp8vzx3w",
+      "to": "bc1q4w6l4wxjs8mcvpvwwhg09ss4ug2ccpqn462cuu",
+      "amount": 10.21824318,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790661675,
+      "tx_hash": "ffb98133c68219db06925b58b22161380970901f721648a49770a4f5bd4e38ef",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 4,
+      "from": "bc1q4w6l4wxjs8mcvpvwwhg09ss4ug2ccpqn462cuu",
+      "to": "3JTT5gtJJKoWba5qVGVKM6aiv9Nipk9QU3",
+      "amount": 0.000122,
+      "acc_score": 0.85,
+      "paes_score": 0.6,
+      "timestamp": 1790661897,
+      "tx_hash": "2651644be2d9e914b24f47a31c89611d54fb572df3210d89932e1274ca56123d",
+      "profile": "[PEELING CHAIN & RAPID LAYERING | RISK: MEDIUM]"
+    },
+    {
+      "hop": 5,
+      "from": "3JTT5gtJJKoWba5qVGVKM6aiv9Nipk9QU3",
+      "to": "bc1qqk8mkp4aep6quxrkrkwtsgfc3ly838nwx3nr2l",
+      "amount": 0.000122,
+      "acc_score": 0.7,
+      "paes_score": 0.5,
+      "timestamp": 1790662350,
+      "tx_hash": "b517bfcb4dc29fdb494dd9db2179abc7633cf7c2664c34ce755d362d83c3413e",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "1DLeNApsHNNzUMNZJVoXeyEY5sdp8vzx3w",
+      "to": "bc1qr5j2kplvn8k8sf5ds7ew0fudc20se6dsmfqpp9",
+      "amount": 2.16131364,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1790661675,
+      "tx_hash": "c2c3e13d180b207f6b85469ec9c6dc1f620ee53db46985faf548508f227455d7",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "3Bnbv2aYN2DwJvmgMSg4cy9eiTDan3h4G6",
+      "amount": 0.02564899,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790657429,
+      "tx_hash": "041ec797d9cf9aa408f385a37892d4134795478551e8550581c5be6623019aa7",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1q7chwfyvqu3wnmfg9v48akfgm30fveu37vkmf29",
+      "amount": 0.01407836,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790657429,
+      "tx_hash": "3064c7cbdcc8721253b45ab731bf655d2c54a8974c2b75c55d402848ac9f0586",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qxpretwdth8m56fulhp5krdxv5lq9kx0s7nsdn2",
+      "amount": 0.00433612,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790657429,
+      "tx_hash": "95e8c1ccd1d8496db7347da686cd87df5f8b3d9edf1173b99f69aab0bddbc143",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1qy8jnq43g3afz6m82zn46pu23u33l92f028hn63",
+      "amount": 0.00805931,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790653721,
+      "tx_hash": "0572333a6756a9de57b695c9c0c2cb507df411e3b4ad6bf1d1927e6433242ab2",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "1FMS4NWWLXUuaZgBaW8yj9bmmZTdrn6h2X",
+      "amount": 0.00263162,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790653721,
+      "tx_hash": "0a74f068b66e450019687f5881315b8228d1b71aa9aea36554adf234d492a4df",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "bc1qdllzjxkykyk7mmm698lnsh4378xj62fthqex3q",
+      "to": "bc1q4yj789dx3nvm62n0c5m9n30v0k2g9q6k0qjxdx",
+      "amount": 0.00227894,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790653721,
+      "tx_hash": "a0231e2af1b4936930c4d8f3734ea24d7859fbaaebf6eabc0eaaee715607d8f1",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ]
+}

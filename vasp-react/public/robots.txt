@@ -1,0 +1,8 @@
+﻿# ChainTrace Forensics robots.txt
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /reports/
+
+Sitemap: https://chaintrace.gov.in/sitemap.xml

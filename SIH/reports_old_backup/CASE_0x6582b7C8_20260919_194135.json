@@ -1,0 +1,113 @@
+{
+  "case_id": "CASE_0x6582b7C8_20260919_194135",
+  "generated_at": "2026-09-19T14:11:35.805539+00:00",
+  "suspect_wallet": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+  "coin": "ETH",
+  "hops_traced": 5,
+  "total_inflow": 0,
+  "total_outflow": 0.09000000000000001,
+  "risk_assessment": {
+    "composite_score": 60,
+    "risk_level": "HIGH",
+    "verdict": "Risk Level: HIGH | Typology: Cross-Chain Bridge Hopping",
+    "typologies": [
+      {
+        "code": "TYP-XCHAIN-01",
+        "title": "Cross-Chain Bridge Hopping",
+        "severity": "MEDIUM",
+        "base_threat_weight": 45,
+        "statutory_reference": "FIU-IND Red Flag Indicator — Cross-Chain Capital Flight",
+        "guidance": "Decode cross-chain relayer deposit/fill transaction logs to follow funds on the destination ledger."
+      }
+    ],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [
+    {
+      "protocol": "Across Protocol",
+      "status": "FILLED",
+      "origin_chain": "ETH",
+      "origin_tx_hash": "0x5f36a771bfb6e3d3a5a1982bcb3435d104ce9c2a4ffb1146464e88e1942619d4",
+      "origin_chain_id": 1,
+      "destination_chain_id": 4663,
+      "destination_chain_name": "Robinhood Chain",
+      "destination_symbol": "ROBINHOOD",
+      "fill_tx_hash": "0xf8a1153ddf47bf5aafaef51665f0be7ac097a0f77443e5915a4db2ea37837f2b",
+      "recipient": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.06998228442310052,
+      "deposit_id": "4607297"
+    },
+    {
+      "protocol": "Across Protocol",
+      "status": "FILLED",
+      "origin_chain": "ETH",
+      "origin_tx_hash": "0x791c33408d1c49bf0c9d1f357ec0587f4f6da7297b1e3d113e5a5454ab357ce3",
+      "origin_chain_id": 1,
+      "destination_chain_id": 4663,
+      "destination_chain_name": "Robinhood Chain",
+      "destination_symbol": "ROBINHOOD",
+      "fill_tx_hash": "0x32dd9597d1203401b2250af3e2d733aa8dbc908268562ae46d302c53c0fdb181",
+      "recipient": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.019984962166046203,
+      "deposit_id": "4601689"
+    }
+  ],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "amount": 0.07,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1789748843,
+      "tx_hash": "0x5f36a771bfb6e3d3a5a1982bcb3435d104ce9c2a4ffb1146464e88e1942619d4",
+      "profile": "[DEFI BRIDGE: ACROSS PROTOCOL | RISK: MEDIUM]"
+    },
+    {
+      "hop": 2,
+      "from": "0x5c7bcd... (Across Protocol)",
+      "to": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.06998228442310052,
+      "acc_score": 0.85,
+      "paes_score": 0.8,
+      "timestamp": 1789748843,
+      "tx_hash": "0xf8a1153ddf47bf5aafaef51665f0be7ac097a0f77443e5915a4db2ea37837f2b",
+      "profile": "[DESTINATION RECIPIENT on Robinhood Chain]"
+    },
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x5c7bcd6e7de5423a257d81b442095a1a6ced35c5",
+      "amount": 0.02,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1789693943,
+      "tx_hash": "0x791c33408d1c49bf0c9d1f357ec0587f4f6da7297b1e3d113e5a5454ab357ce3",
+      "profile": "[DEFI BRIDGE: ACROSS PROTOCOL | RISK: MEDIUM]"
+    },
+    {
+      "hop": 2,
+      "from": "0x5c7bcd... (Across Protocol)",
+      "to": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "amount": 0.019984962166046203,
+      "acc_score": 0.85,
+      "paes_score": 0.8,
+      "timestamp": 1789693943,
+      "tx_hash": "0x32dd9597d1203401b2250af3e2d733aa8dbc908268562ae46d302c53c0fdb181",
+      "profile": "[DESTINATION RECIPIENT on Robinhood Chain]"
+    },
+    {
+      "hop": 1,
+      "from": "0x6582b7C80dF319553a988F62436b8A1be6b2B24C",
+      "to": "0x0de8bf93da2f7eecb3d9169422413a9bef4ef628",
+      "amount": 0.0,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1789846427,
+      "tx_hash": "0x4418f64f2b21553e6936cf3b0c687947e3b1872a9c1b1af7b82cffd5fef5485a",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ]
+}

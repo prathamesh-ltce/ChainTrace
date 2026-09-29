@@ -1,0 +1,76 @@
+{
+  "case_id": "VASP-20260929_170512",
+  "generated_at": "2026-09-29T11:35:30.860575+00:00",
+  "suspect_wallet": "0xC9a75898a0b74E23b193885E57134C69ACdd4E3c",
+  "coin": "ETH",
+  "blockchain": "ETH",
+  "risk_score": 40,
+  "risk_level": "MEDIUM",
+  "typologies": [
+    {
+      "code": "TYP-SWAP-01",
+      "title": "Decentralized Token Swapping / AMM Layering",
+      "severity": "MEDIUM",
+      "base_threat_weight": 40,
+      "statutory_reference": "PMLA Section 3 / FIU-IND Layering Typology",
+      "guidance": "Inspect token transfer swap logs, liquidity pair routing, and destination token recipient address."
+    }
+  ],
+  "hops_traced": 1,
+  "total_inflow": 0,
+  "total_outflow": 3.60424547,
+  "inflow_count": 0,
+  "outflow_count": 50,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 3.60424547,
+    "inflow_count": 0,
+    "outflow_count": 50,
+    "transfers_traced": 1
+  },
+  "risk_assessment": {
+    "risk_score": 40,
+    "composite_score": 40,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Decentralized Token Swapping / AMM Layering",
+    "typologies": [
+      {
+        "code": "TYP-SWAP-01",
+        "title": "Decentralized Token Swapping / AMM Layering",
+        "severity": "MEDIUM",
+        "base_threat_weight": 40,
+        "statutory_reference": "PMLA Section 3 / FIU-IND Layering Typology",
+        "guidance": "Inspect token transfer swap logs, liquidity pair routing, and destination token recipient address."
+      }
+    ],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [
+    {
+      "hop": 1,
+      "address": "0x278d858f05b94576c1e6f73285886876ff6ef8d2",
+      "vasp_name": "DeFi DEX Token Swapper",
+      "jurisdiction": "Decentralized (On-Chain AMM)",
+      "compliance_email": "compliance@uniswap.org",
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0xC9a75898a0b74E23b193885E57134C69ACdd4E3c",
+      "to": "0x278d858f05b94576c1e6f73285886876ff6ef8d2",
+      "amount": 0.0,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1790681063,
+      "tx_hash": "0x715ebfef72e498ed25e24ae3cc10af82f94f2fd2c0521e0e8ffb442356305917",
+      "profile": "[DEFI SWAPPER: DEFI DEX TOKEN SWAPPER | RISK: MEDIUM]"
+    }
+  ],
+  "suspect_address": "0xC9a75898a0b74E23b193885E57134C69ACdd4E3c",
+  "duration_seconds": 18.81
+}

@@ -1,0 +1,24 @@
+# Python virtual environments & bytecode
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.class
+.pytest_cache/
+
+# Node / React
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# System & OS
+.DS_Store
+Thumbs.db
+*.log
+
+# Sensitive environment files
+.env
+.env.local
+.env.production

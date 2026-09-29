@@ -1,0 +1,29 @@
+{
+  "case_id": "CASE_bc1q5e5vt9_20260929_113926",
+  "generated_at": "2026-09-29T06:09:26.356450+00:00",
+  "suspect_wallet": "bc1q5e5vt9pmvghgn4yrhy7aw2yszwe794rdcz86z6",
+  "coin": "BTC",
+  "hops_traced": 0,
+  "total_inflow": 0,
+  "total_outflow": 0,
+  "inflow_count": 0,
+  "outflow_count": 0,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 0,
+    "inflow_count": 0,
+    "outflow_count": 0,
+    "transfers_traced": 0
+  },
+  "risk_assessment": {
+    "risk_score": 0,
+    "composite_score": 0,
+    "risk_level": "LOW",
+    "verdict": "Risk Level: LOW | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": []
+}

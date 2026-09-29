@@ -1,0 +1,31 @@
+{
+  "case_id": "VASP-20260919_134701",
+  "generated_at": "2026-09-19T13:47:01.725512+00:00",
+  "engine": "Automated Blockchain Forensic & VASP Attribution Engine (Zero API Keys)",
+  "graph_engine": "TransactionGraphBackend (C++ CSR Graph + Microsecond BFS)",
+  "cpp_engine_stats": null,
+  "suspect_address": "bc1qpdk469xeyx20h2j334ywt5e2e8y2pknlj9suf6",
+  "blockchain": "BTC",
+  "max_hops_traced": 15,
+  "duration_seconds": 9.73,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 0,
+    "inflow_count": 0,
+    "outflow_count": 0,
+    "transfers_traced": 0
+  },
+  "risk_assessment": {
+    "risk_score": 0,
+    "risk_level": "LOW",
+    "typologies": [],
+    "mixer_detected": false,
+    "darknet_detected": false,
+    "betting_detected": false,
+    "bridge_detected": false,
+    "peeling_chain_detected": false
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": []
+}

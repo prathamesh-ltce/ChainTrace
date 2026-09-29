@@ -1,0 +1,74 @@
+{
+  "case_id": "CASE_0xC9a75898_20260929_170401",
+  "generated_at": "2026-09-29T11:34:01.424597+00:00",
+  "suspect_wallet": "0xC9a75898a0b74E23b193885E57134C69ACdd4E3c",
+  "coin": "ETH",
+  "blockchain": "ETH",
+  "risk_score": 40,
+  "risk_level": "MEDIUM",
+  "typologies": [
+    {
+      "code": "TYP-SWAP-01",
+      "title": "Decentralized Token Swapping / AMM Layering",
+      "severity": "MEDIUM",
+      "base_threat_weight": 40,
+      "statutory_reference": "PMLA Section 3 / FIU-IND Layering Typology",
+      "guidance": "Inspect token transfer swap logs, liquidity pair routing, and destination token recipient address."
+    }
+  ],
+  "hops_traced": 1,
+  "total_inflow": 0,
+  "total_outflow": 3.60424547,
+  "inflow_count": 0,
+  "outflow_count": 50,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 3.60424547,
+    "inflow_count": 0,
+    "outflow_count": 50,
+    "transfers_traced": 1
+  },
+  "risk_assessment": {
+    "risk_score": 40,
+    "composite_score": 40,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Decentralized Token Swapping / AMM Layering",
+    "typologies": [
+      {
+        "code": "TYP-SWAP-01",
+        "title": "Decentralized Token Swapping / AMM Layering",
+        "severity": "MEDIUM",
+        "base_threat_weight": 40,
+        "statutory_reference": "PMLA Section 3 / FIU-IND Layering Typology",
+        "guidance": "Inspect token transfer swap logs, liquidity pair routing, and destination token recipient address."
+      }
+    ],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [
+    {
+      "hop": 1,
+      "address": "0x278d858f05b94576c1e6f73285886876ff6ef8d2",
+      "vasp_name": "Uniswap V2 Liquidity Pool",
+      "jurisdiction": "Decentralized (On-Chain AMM)",
+      "compliance_email": "compliance@uniswap.org",
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0xC9a75898a0b74E23b193885E57134C69ACdd4E3c",
+      "to": "0x278d858f05b94576c1e6f73285886876ff6ef8d2",
+      "amount": 0.28418777,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1790680415,
+      "tx_hash": "0x72a858386c6ef5521a19a5579772e811746f8f2ddb2a9480d845cf31ebaa47bb",
+      "profile": "[DEFI SWAPPER: UNISWAP V2 LIQUIDITY POOL | RISK: MEDIUM]"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "case_id": "VASP-20260929_183000",
+  "generated_at": "2026-09-29T13:00:05.170501+00:00",
+  "suspect_wallet": "0x5b6d1d0bd5d09d8a3dbdad85f1ffc1ef3d25730ac86ffd84f9ff280988feb213",
+  "coin": "BTC",
+  "blockchain": "BTC",
+  "risk_score": 0,
+  "risk_level": "LOW",
+  "typologies": [],
+  "hops_traced": 0,
+  "total_inflow": 0,
+  "total_outflow": 0,
+  "inflow_count": 0,
+  "outflow_count": 0,
+  "on_chain_summary": {
+    "total_inflow": 0,
+    "total_outflow": 0,
+    "inflow_count": 0,
+    "outflow_count": 0,
+    "transfers_traced": 0
+  },
+  "risk_assessment": {
+    "risk_score": 0,
+    "composite_score": 0,
+    "risk_level": "LOW",
+    "verdict": "Risk Level: LOW | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [],
+  "suspect_address": "0x5b6d1d0bd5d09d8a3dbdad85f1ffc1ef3d25730ac86ffd84f9ff280988feb213",
+  "duration_seconds": 5.05
+}

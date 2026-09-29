@@ -1,0 +1,161 @@
+{
+  "case_id": "CASE_0xc5AcD1fA_20260929_170825",
+  "generated_at": "2026-09-29T11:38:25.788607+00:00",
+  "suspect_wallet": "0xc5AcD1fA8E65320C04a76DCfe10D78Abd59cc6C3",
+  "coin": "ETH",
+  "blockchain": "ETH",
+  "risk_score": 84,
+  "risk_level": "CRITICAL",
+  "typologies": [
+    {
+      "code": "TYP-PEEL-01",
+      "title": "Peeling Chain & Rapid Layering",
+      "severity": "HIGH",
+      "base_threat_weight": 60,
+      "statutory_reference": "FATF Red Flag Indicator — Automated Structuring & Layering",
+      "guidance": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+    },
+    {
+      "code": "TYP-XCHAIN-01",
+      "title": "Cross-Chain Bridge Hopping",
+      "severity": "MEDIUM",
+      "base_threat_weight": 45,
+      "statutory_reference": "FIU-IND Red Flag Indicator — Cross-Chain Capital Flight",
+      "guidance": "Decode cross-chain relayer deposit/fill transaction logs to follow funds on the destination ledger."
+    }
+  ],
+  "hops_traced": 5,
+  "total_inflow": 0.04993,
+  "total_outflow": 0.0498609,
+  "inflow_count": 1,
+  "outflow_count": 3,
+  "on_chain_summary": {
+    "total_inflow": 0.04993,
+    "total_outflow": 0.0498609,
+    "inflow_count": 1,
+    "outflow_count": 3,
+    "transfers_traced": 5
+  },
+  "risk_assessment": {
+    "risk_score": 84,
+    "composite_score": 84,
+    "risk_level": "CRITICAL",
+    "verdict": "Risk Level: CRITICAL | Typology: Peeling Chain & Rapid Layering + Cross-Chain Bridge Hopping",
+    "typologies": [
+      {
+        "code": "TYP-PEEL-01",
+        "title": "Peeling Chain & Rapid Layering",
+        "severity": "HIGH",
+        "base_threat_weight": 60,
+        "statutory_reference": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "guidance": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      },
+      {
+        "code": "TYP-XCHAIN-01",
+        "title": "Cross-Chain Bridge Hopping",
+        "severity": "MEDIUM",
+        "base_threat_weight": 45,
+        "statutory_reference": "FIU-IND Red Flag Indicator — Cross-Chain Capital Flight",
+        "guidance": "Decode cross-chain relayer deposit/fill transaction logs to follow funds on the destination ledger."
+      }
+    ],
+    "high_risk_alerts": [
+      {
+        "hop": 2,
+        "entity": "0x247c6eedebc4de9f00335304f767ed2208407f36",
+        "typology": "Peeling Chain & Rapid Layering",
+        "statutory_ref": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "severity": "HIGH",
+        "action": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      },
+      {
+        "hop": 3,
+        "entity": "Binance",
+        "typology": "Peeling Chain & Rapid Layering",
+        "statutory_ref": "FATF Red Flag Indicator — Automated Structuring & Layering",
+        "severity": "HIGH",
+        "action": "Construct topological fund flow graph to identify the terminal consolidation or cash-out wallet."
+      }
+    ]
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [
+    {
+      "hop": 3,
+      "address": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "vasp_name": "Binance",
+      "jurisdiction": "Global",
+      "compliance_email": "compliance@binance.com",
+      "acc_score": 0.95,
+      "paes_score": 0.7,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0xc5AcD1fA8E65320C04a76DCfe10D78Abd59cc6C3",
+      "to": "0x1c9483ea5c2dd5dd43198522845cd0209b63139f",
+      "amount": 0.0001,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790681375,
+      "tx_hash": "0x76dcdec58c09b32526bfb6f6082733173765c1f1b4ed7caa95b32d962ad7df83",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "0xc5AcD1fA8E65320C04a76DCfe10D78Abd59cc6C3",
+      "to": "0x7751dd545762c77bf6214f8652906539bb89ccc8",
+      "amount": 0.00158132,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790681363,
+      "tx_hash": "0x5b6d1d0bd5d09d8a3dbdad85f1ffc1ef3d25730ac86ffd84f9ff280988feb213",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "0x7751dd545762c77bf6214f8652906539bb89ccc8",
+      "to": "0x247c6eedebc4de9f00335304f767ed2208407f36",
+      "amount": 0.5083269,
+      "acc_score": 0.85,
+      "paes_score": 0.8,
+      "timestamp": 1790681387,
+      "tx_hash": "0xf1d8737ae6d992d3a520e3fd60efae4efca73a17f5a19016a539c24dd07af12c",
+      "profile": "[PEELING CHAIN & RAPID LAYERING | RISK: HIGH]"
+    },
+    {
+      "hop": 3,
+      "from": "0x247c6eedebc4de9f00335304f767ed2208407f36",
+      "to": "0x28c6c06298d514db089934071355e5743bf21d60",
+      "amount": 0.5083111,
+      "acc_score": 0.95,
+      "paes_score": 0.7,
+      "timestamp": 1790681411,
+      "tx_hash": "0xb947c4801a6f132ab4c16bd292689b7ff2cbf5f079f05cf5f1b0ea862a3428a3",
+      "profile": "[PEELING CHAIN & RAPID LAYERING | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0xc5AcD1fA8E65320C04a76DCfe10D78Abd59cc6C3",
+      "to": "0x4cd00e387622c35bddb9b4c962c136462338bc31",
+      "amount": 0.04817958,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1790666171,
+      "tx_hash": "0xfa5a61d4b0e87a471bbce62340a9449edb484736db8e158ce0b4cc913e94005c",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    }
+  ]
+}

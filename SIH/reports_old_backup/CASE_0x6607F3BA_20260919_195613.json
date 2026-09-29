@@ -1,0 +1,86 @@
+{
+  "case_id": "CASE_0x6607F3BA_20260919_195613",
+  "generated_at": "2026-09-19T14:26:13.203701+00:00",
+  "suspect_wallet": "0x6607F3BA1023b3143E9853D6B11A907D71689679",
+  "coin": "ETH",
+  "hops_traced": 6,
+  "total_inflow": 0.76541836,
+  "total_outflow": 0.76361188,
+  "risk_assessment": {
+    "composite_score": 29,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0x6607F3BA1023b3143E9853D6B11A907D71689679",
+      "to": "0x36db584f1ca7d64c3980b0abcef069e702c4c2f3",
+      "amount": 0.125495,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1788184187,
+      "tx_hash": "0x9eef7aaf98200dcde9fdd6dbb8b6cebc81d00f7e6a997c9deb4f0a9f2ad96baa",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "0x36db584f1ca7d64c3980b0abcef069e702c4c2f3",
+      "to": "0xabe7931e45593679a9433add2686706a5134bf2f",
+      "amount": 0.12548847,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1788185303,
+      "tx_hash": "0x89f2ee624c94c7e87d4ab3539cb068100a450d2890bafb96092714de1f228eb4",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 1,
+      "from": "0x6607F3BA1023b3143E9853D6B11A907D71689679",
+      "to": "0xcd009f84afdf31b8200ffede86068692ec2a9ad1",
+      "amount": 0.07306192,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1789098347,
+      "tx_hash": "0x045642051c6871c5d0dd676dc48be30027e34354ae8c8df0e700de2248830cb7",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 2,
+      "from": "0xcd009f84afdf31b8200ffede86068692ec2a9ad1",
+      "to": "0x7c0d181e0f32f4a40189be4e62ea774fe4cd96d4",
+      "amount": 0.07306071,
+      "acc_score": 0.7,
+      "paes_score": 0.8,
+      "timestamp": 1789106423,
+      "tx_hash": "0x583ae8b3b7ac9a0fbd6e78fa65b9e6568e0217c268e5a74ec49fbbd7856381e1",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "0x7c0d181e0f32f4a40189be4e62ea774fe4cd96d4",
+      "to": "0xe4beeaac4a9cce463ecccb3fe043deded49f0c35",
+      "amount": 0.03180776,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1789845971,
+      "tx_hash": "0xb930f1135661e85f106a922d4204dc84af620b289c3c97c2d8a51fa6643d23c1",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    },
+    {
+      "hop": 3,
+      "from": "0x7c0d181e0f32f4a40189be4e62ea774fe4cd96d4",
+      "to": "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+      "amount": 0.0,
+      "acc_score": 0.7,
+      "paes_score": 0.7,
+      "timestamp": 1789847651,
+      "tx_hash": "0x75622933c85cd175848ca96485d59687752133849a67df19354b0d54e8635e37",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ]
+}

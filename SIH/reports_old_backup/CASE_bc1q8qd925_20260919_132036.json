@@ -1,0 +1,56 @@
+{
+  "case_id": "VASP-20260919_132036",
+  "generated_at": "2026-09-19T13:20:36.192135+00:00",
+  "engine": "Automated Blockchain Forensic & VASP Attribution Engine (Zero API Keys)",
+  "graph_engine": "TransactionGraphBackend (C++ CSR Graph + Microsecond BFS)",
+  "cpp_engine_stats": {
+    "nodesCount": 3,
+    "edgesCount": 2,
+    "nodesVisited": 3,
+    "edgesExamined": 2,
+    "executionTimeUs": 3,
+    "truncated": false
+  },
+  "suspect_address": "bc1q8qd9259mta97xrzxnesz400l99u6snruv3r4za",
+  "blockchain": "BTC",
+  "max_hops_traced": 15,
+  "duration_seconds": 10.53,
+  "on_chain_summary": {
+    "total_inflow": 0.01089424,
+    "total_outflow": 0.01088557,
+    "inflow_count": 2,
+    "outflow_count": 2,
+    "transfers_traced": 2
+  },
+  "risk_assessment": {
+    "risk_score": 5,
+    "risk_level": "LOW",
+    "typologies": [],
+    "mixer_detected": false,
+    "darknet_detected": false,
+    "betting_detected": false,
+    "bridge_detected": false,
+    "peeling_chain_detected": false
+  },
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1q8qd9259mta97xrzxnesz400l99u6snruv3r4za",
+      "to": "bc1q4djxs02y68ct0x40kt0yu72eqy8mlnx0mal2wx",
+      "amount": 0.00830194,
+      "timestamp": 1788880969,
+      "tx_hash": "b385369d53bdeaae4b6bbbaa1f45c371ad60d7247e94686e3e054c725e3ba3b4",
+      "profile": ""
+    },
+    {
+      "hop": 1,
+      "from": "bc1q8qd9259mta97xrzxnesz400l99u6snruv3r4za",
+      "to": "bc1qmy5mqthv4l7xmkhfs5f75s6daje4genua32aw7",
+      "amount": 0.00258363,
+      "timestamp": 1789824026,
+      "tx_hash": "e43358ed89a77a6e255917d1541dbdfd05a55080214a3f42ba3649de4ce3c9a2",
+      "profile": ""
+    }
+  ]
+}

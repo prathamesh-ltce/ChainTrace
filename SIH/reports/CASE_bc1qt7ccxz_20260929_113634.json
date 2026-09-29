@@ -1,0 +1,41 @@
+{
+  "case_id": "CASE_bc1qt7ccxz_20260929_113634",
+  "generated_at": "2026-09-29T06:06:34.938169+00:00",
+  "suspect_wallet": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+  "coin": "BTC",
+  "hops_traced": 1,
+  "total_inflow": 0.0028656,
+  "total_outflow": 0.00398676,
+  "inflow_count": 9,
+  "outflow_count": 16,
+  "on_chain_summary": {
+    "total_inflow": 0.0028656,
+    "total_outflow": 0.00398676,
+    "inflow_count": 9,
+    "outflow_count": 16,
+    "transfers_traced": 1
+  },
+  "risk_assessment": {
+    "risk_score": 20,
+    "composite_score": 20,
+    "risk_level": "MEDIUM",
+    "verdict": "Risk Level: MEDIUM | Typology: Standard Unflagged Transfer Tree",
+    "typologies": [],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "bc1qt7ccxz03qj3x93qwc2jtsuapg6nv989kg49qdr",
+      "to": "bc1qtk5hqmfcdfy4mpdm77arlewfdlldh6gt2xhyd8",
+      "amount": 0.00036555,
+      "acc_score": 0.7,
+      "paes_score": 0.9,
+      "timestamp": 1790659500,
+      "tx_hash": "51f96582ae35b0d64a4c713fd7e3ee37486dad7724f67baab6850d15663d7ab3",
+      "profile": "[UNHOSTED INTERMEDIARY | RISK: LOW]"
+    }
+  ]
+}

@@ -1,0 +1,237 @@
+{
+  "case_id": "CASE_0x911F8A41_20260929_170123",
+  "generated_at": "2026-09-29T11:31:23.699750+00:00",
+  "suspect_wallet": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+  "coin": "ETH",
+  "hops_traced": 9,
+  "total_inflow": 0.0,
+  "total_outflow": 3.13902826,
+  "inflow_count": 41,
+  "outflow_count": 9,
+  "on_chain_summary": {
+    "total_inflow": 0.0,
+    "total_outflow": 3.13902826,
+    "inflow_count": 41,
+    "outflow_count": 9,
+    "transfers_traced": 9
+  },
+  "risk_assessment": {
+    "risk_score": 60,
+    "composite_score": 60,
+    "risk_level": "HIGH",
+    "verdict": "Risk Level: HIGH | Typology: Cross-Chain Bridge Hopping + Decentralized Token Swapping / AMM Layering",
+    "typologies": [
+      {
+        "code": "TYP-XCHAIN-01",
+        "title": "Cross-Chain Bridge Hopping",
+        "severity": "MEDIUM",
+        "base_threat_weight": 45,
+        "statutory_reference": "FIU-IND Red Flag Indicator — Cross-Chain Capital Flight",
+        "guidance": "Decode cross-chain relayer deposit/fill transaction logs to follow funds on the destination ledger."
+      },
+      {
+        "code": "TYP-SWAP-01",
+        "title": "Decentralized Token Swapping / AMM Layering",
+        "severity": "MEDIUM",
+        "base_threat_weight": 40,
+        "statutory_reference": "PMLA Section 3 / FIU-IND Layering Typology",
+        "guidance": "Inspect token transfer swap logs, liquidity pair routing, and destination token recipient address."
+      }
+    ],
+    "high_risk_alerts": []
+  },
+  "cross_chain_hops": [],
+  "vasp_targets": [
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0x3d90f66b534dd8482b181e24655a9e8265316be9",
+      "vasp_name": "DeFi DEX Token Swapper",
+      "jurisdiction": "Decentralized (On-Chain AMM)",
+      "compliance_email": "compliance@uniswap.org",
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    },
+    {
+      "hop": 1,
+      "address": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "vasp_name": "DeFi Cross-Chain Bridge",
+      "jurisdiction": "Decentralized",
+      "compliance_email": "bridge-relayer@across.to",
+      "acc_score": 0.85,
+      "paes_score": 0.9,
+      "statutory_notice": "Section 91 CrPC / Section 94 BNSS"
+    }
+  ],
+  "chain_of_custody_ledger": [
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.11131541,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1790681363,
+      "tx_hash": "0x0f10a44e8759e072f07b72aa908fbfac1d5115a994bfd2eb47930039ce1ee538",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.01472593,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1788726467,
+      "tx_hash": "0x21f693f9753d9e436a2251da3ef4d233213336baaf0735c8412744899daca089",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0x3d90f66b534dd8482b181e24655a9e8265316be9",
+      "amount": 0.00738651,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1785548999,
+      "tx_hash": "0xdc39f782a9332e720b455f1afd4d27837f200130243ad47d6e2de2cc4c75e2ae",
+      "profile": "[DEFI SWAPPER: DEFI DEX TOKEN SWAPPER | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.74074074,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1783792307,
+      "tx_hash": "0x00d47906bfc2092b09772d61db84aa687cb37a5485570c121ff8caa9914bb7d6",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.11125967,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1783513655,
+      "tx_hash": "0x6e33d3c3349aaed178d88ad77fa0e585d7511dc0036d45a677c7d078f4c52bf7",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.12222222,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1782714239,
+      "tx_hash": "0xdc1941e5d926e402553e72963028fb165f771aae60cf5ab5b90265e93ac40af6",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.02508148,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1782541967,
+      "tx_hash": "0xff1609e6515f3a4ed26025474d26bb9ab6568ed0addf45c906a8f3ce718760c2",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 0.51111111,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1780634471,
+      "tx_hash": "0x22144466375d7bd2f61930378e1a4b57c86047f1f86bdd3a4af55198ffaecc91",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    },
+    {
+      "hop": 1,
+      "from": "0x911F8A41725902b7101e4EE7d9aAd16742F62ffc",
+      "to": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+      "amount": 1.49518519,
+      "acc_score": 0.95,
+      "paes_score": 0.9,
+      "timestamp": 1780387175,
+      "tx_hash": "0xe5c8c2e20b0ba160e65cee63722888918f6cc886acd9ca78b66a3d6920107f40",
+      "profile": "[DEFI BRIDGE: DEFI CROSS-CHAIN BRIDGE | RISK: MEDIUM]"
+    }
+  ]
+}

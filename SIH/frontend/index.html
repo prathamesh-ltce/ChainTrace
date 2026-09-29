@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VASP Forensic Engine — Blockchain Intelligence Platform</title>
+  <meta name="description" content="Multi-chain blockchain forensic analysis and AML/CFT typology engine for law enforcement. Trace fund flows, identify VASPs, and generate statutory reports." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <div class="logo-icon">
+        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 4L36 13V27L20 36L4 27V13L20 4Z" stroke="url(#logoGrad)" stroke-width="1.5" fill="rgba(99,102,241,0.1)"/>
+          <circle cx="20" cy="20" r="6" fill="url(#logoGrad)"/>
+          <circle cx="10" cy="14" r="2.5" fill="#6366f1" opacity="0.7"/>
+          <circle cx="30" cy="14" r="2.5" fill="#8b5cf6" opacity="0.7"/>
+          <circle cx="10" cy="26" r="2.5" fill="#6366f1" opacity="0.7"/>
+          <circle cx="30" cy="26" r="2.5" fill="#8b5cf6" opacity="0.7"/>
+          <line x1="10" y1="14" x2="20" y2="20" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+          <line x1="30" y1="14" x2="20" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+          <line x1="10" y1="26" x2="20" y2="20" stroke="#6366f1" stroke-width="1" opacity="0.5"/>
+          <line x1="30" y1="26" x2="20" y2="20" stroke="#8b5cf6" stroke-width="1" opacity="0.5"/>
+          <defs>
+            <linearGradient id="logoGrad" x1="4" y1="4" x2="36" y2="36">
+              <stop offset="0%" stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#8b5cf6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <div class="logo-text">
+        <span class="logo-name">ChainTrace</span>
+        <span class="logo-sub">v2.0 Forensic</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">INVESTIGATION</div>
+      <a href="#" class="nav-item active" id="nav-trace" onclick="showView('trace'); return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+        <span>Trace Wallet</span>
+        <div class="nav-badge active-badge">LIVE</div>
+      </a>
+      <a href="#" class="nav-item" id="nav-reports" onclick="showView('reports'); return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        <span>Case Reports</span>
+      </a>
+      <a href="#" class="nav-item" id="nav-graph" onclick="showView('graph'); return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+        <span>Flow Graph</span>
+      </a>
+      <a href="#" class="nav-item" id="nav-intel" onclick="showView('intel'); return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Threat Intel</span>
+      </a>
+
+      <div class="nav-section-label" style="margin-top: 20px;">CHAINS</div>
+      <div class="chain-badges">
+        <span class="chain-badge btc">BTC</span>
+        <span class="chain-badge eth">ETH</span>
+        <span class="chain-badge trx">TRX</span>
+        <span class="chain-badge bnb">BNB</span>
+        <span class="chain-badge matic">MATIC</span>
+        <span class="chain-badge sol">SOL</span>
+      </div>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="engine-status">
+        <div class="status-dot"></div>
+        <span>C++ CSR Engine Online</span>
+      </div>
+      <div class="fiu-badge">FIU-IND / FATF Compliant</div>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <!-- Header -->
+    <header class="top-header">
+      <button class="sidebar-toggle" onclick="toggleSidebar()" id="sidebarToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+      <div class="header-title">
+        <h1 id="page-title">Wallet Trace &amp; Fund Flow Analysis</h1>
+        <p id="page-subtitle">Multi-hop blockchain tracing with real-time VASP attribution and AML/CFT typology detection</p>
+      </div>
+      <div class="header-actions">
+        <div class="header-stat">
+          <span class="stat-value" id="hdr-entities">0</span>
+          <span class="stat-label">Entities</span>
+        </div>
+        <div class="header-stat">
+          <span class="stat-value" id="hdr-cases">20</span>
+          <span class="stat-label">Cases</span>
+        </div>
+        <button class="btn-icon" title="Export Report" onclick="exportCurrentReport()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- TRACE VIEW -->
+    <div class="view active" id="view-trace">
+
+      <!-- Input Panel -->
+      <section class="input-panel">
+        <div class="input-panel-header">
+          <div class="panel-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <div>
+            <h2>Suspect Wallet Investigation</h2>
+            <p>Enter a wallet address to initiate multi-hop forensic tracing across all supported blockchains</p>
+          </div>
+        </div>
+
+        <div class="input-grid">
+          <div class="input-field-group large">
+            <label for="wallet-address">Suspect Wallet Address <span class="required">*</span></label>
+            <div class="input-with-icon">
+              <svg class="field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+              <input type="text" id="wallet-address" placeholder="0x... or bc1q... or T..." autocomplete="off" spellcheck="false" oninput="detectChain(this.value)" />
+              <div class="chain-detector" id="chain-detector">
+                <span id="detected-chain">Auto</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label for="coin-type">Blockchain / Coin</label>
+            <div class="select-wrapper">
+              <select id="coin-type">
+                <option value="">Auto-Detect</option>
+                <option value="BTC">Bitcoin (BTC)</option>
+                <option value="ETH">Ethereum (ETH)</option>
+                <option value="TRON">Tron (TRX)</option>
+                <option value="BNB">BNB Chain (BNB)</option>
+                <option value="MATIC">Polygon (MATIC)</option>
+                <option value="SOL">Solana (SOL)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="input-field-group">
+            <label for="date-range">Date Range (Optional)</label>
+            <input type="text" id="date-range" placeholder="YYYY-MM-DD to YYYY-MM-DD" />
+          </div>
+
+          <div class="input-field-group">
+            <label for="tx-hash">Transaction Hash (Optional)</label>
+            <input type="text" id="tx-hash" placeholder="0x... or txhash..." spellcheck="false" />
+          </div>
+
+          <div class="input-field-group">
+            <label for="amount">Target Amount (Optional)</label>
+            <input type="number" id="amount" placeholder="e.g. 0.5" step="any" min="0" />
+          </div>
+
+          <div class="input-field-group">
+            <label for="max-hops">Max Hops: <span id="hops-display">15</span></label>
+            <div class="hops-input">
+              <input type="range" id="max-hops" min="1" max="25" value="15" oninput="document.getElementById('hops-display').textContent = this.value" />
+            </div>
+          </div>
+        </div>
+
+        <div class="input-actions">
+          <button class="btn-primary" id="trace-btn" onclick="startTrace()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Launch Forensic Trace
+          </button>
+          <button class="btn-secondary" onclick="loadDemoCase()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Load Demo Case
+          </button>
+          <button class="btn-ghost" onclick="clearForm()">Clear</button>
+        </div>
+      </section>
+
+      <!-- Progress / Status -->
+      <div class="trace-progress" id="trace-progress" style="display:none;">
+        <div class="progress-header">
+          <div class="progress-spinner"></div>
+          <span id="progress-status">Connecting to decentralized public node pool...</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+        </div>
+        <div class="progress-steps" id="progress-steps"></div>
+      </div>
+
+      <!-- Results Area -->
+      <div class="results-area" id="results-area" style="display:none;">
+
+        <!-- Risk Banner -->
+        <div class="risk-banner" id="risk-banner">
+          <div class="risk-banner-left">
+            <div class="risk-score-ring">
+              <svg viewBox="0 0 80 80">
+                <circle cx="40" cy="40" r="32" stroke="rgba(255,255,255,0.08)" stroke-width="6" fill="none"/>
+                <circle cx="40" cy="40" r="32" id="risk-progress-circle"
+                  stroke="url(#riskGrad)" stroke-width="6" fill="none"
+                  stroke-dasharray="201.06" stroke-dashoffset="201.06"
+                  stroke-linecap="round" transform="rotate(-90 40 40)"/>
+                <defs>
+                  <linearGradient id="riskGrad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#f59e0b"/>
+                    <stop offset="100%" stop-color="#ef4444"/>
+                  </linearGradient>
+                </defs>
+              </svg>
+              <div class="risk-score-center">
+                <span id="risk-score-num">--</span>
+                <small>/100</small>
+              </div>
+            </div>
+            <div class="risk-banner-info">
+              <div class="risk-level-badge" id="risk-level-badge">--</div>
+              <h3 id="risk-verdict">Awaiting analysis...</h3>
+              <p id="risk-summary" class="mono-text">No case loaded</p>
+            </div>
+          </div>
+          <div class="risk-banner-right">
+            <div class="risk-stats">
+              <div class="risk-stat">
+                <span class="rs-val" id="rs-hops">0</span>
+                <span class="rs-lbl">Hops Traced</span>
+              </div>
+              <div class="risk-stat">
+                <span class="rs-val" id="rs-inflow">0</span>
+                <span class="rs-lbl">Inflow Txs</span>
+              </div>
+              <div class="risk-stat">
+                <span class="rs-val" id="rs-outflow">0</span>
+                <span class="rs-lbl">Outflow Txs</span>
+              </div>
+              <div class="risk-stat">
+                <span class="rs-val" id="rs-vasps">0</span>
+                <span class="rs-lbl">VASPs Found</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-card-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <div class="stat-card-data">
+              <span class="sc-val" id="sc-inflow">0.000000</span>
+              <span class="sc-lbl" id="sc-inflow-lbl">Total Inflow</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon red">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+            </div>
+            <div class="stat-card-data">
+              <span class="sc-val" id="sc-outflow">0.000000</span>
+              <span class="sc-lbl" id="sc-outflow-lbl">Total Outflow</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>
+            </div>
+            <div class="stat-card-data">
+              <span class="sc-val" id="sc-transfers">0</span>
+              <span class="sc-lbl">Traced Transfers</span>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-icon blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="stat-card-data">
+              <span class="sc-val" id="sc-duration">0.00s</span>
+              <span class="sc-lbl">Analysis Time</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="result-tabs">
+          <button class="tab-btn active" id="tab-ledger" onclick="switchTab('ledger')">Chain-of-Custody Ledger</button>
+          <button class="tab-btn" id="tab-typology" onclick="switchTab('typology')">AML/CFT Typologies</button>
+          <button class="tab-btn" id="tab-vasp" onclick="switchTab('vasp')">VASP Targets</button>
+          <button class="tab-btn" id="tab-crosschain" onclick="switchTab('crosschain')">Cross-Chain Hops</button>
+          <button class="tab-btn" id="tab-engine" onclick="switchTab('engine')">Graph Engine</button>
+        </div>
+
+        <!-- Ledger Tab -->
+        <div class="tab-content active" id="tab-content-ledger">
+          <div class="ledger-controls">
+            <input type="text" class="ledger-search" id="ledger-search" placeholder="Filter by address, profile, hop..." oninput="filterLedger(this.value)" />
+            <div class="ledger-filter-btns">
+              <button class="filter-btn active" onclick="filterByRisk('all', this)">All</button>
+              <button class="filter-btn" onclick="filterByRisk('critical', this)">Critical</button>
+              <button class="filter-btn" onclick="filterByRisk('high', this)">High</button>
+              <button class="filter-btn" onclick="filterByRisk('medium', this)">Medium</button>
+              <button class="filter-btn" onclick="filterByRisk('low', this)">Low</button>
+            </div>
+          </div>
+          <div class="ledger-table-wrapper">
+            <table class="ledger-table" id="ledger-table">
+              <thead>
+                <tr>
+                  <th>Hop</th>
+                  <th>From</th>
+                  <th>To</th>
+                  <th>Amount</th>
+                  <th>Timestamp</th>
+                  <th>ACC</th>
+                  <th>PAES</th>
+                  <th>Classification</th>
+                  <th>TxHash</th>
+                </tr>
+              </thead>
+              <tbody id="ledger-tbody">
+                <tr class="empty-row">
+                  <td colspan="9">No trace data loaded. Enter a suspect wallet to begin analysis.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Typology Tab -->
+        <div class="tab-content" id="tab-content-typology">
+          <div class="typology-grid" id="typology-grid">
+            <div class="typology-empty">No typologies detected yet. Run a trace to see AML/CFT classification.</div>
+          </div>
+          <div class="category-breakdown" id="category-breakdown" style="display:none;">
+            <h3>Threat Factor &amp; Taint Decay Breakdown</h3>
+            <div class="breakdown-bars" id="breakdown-bars"></div>
+          </div>
+        </div>
+
+        <!-- VASP Targets Tab -->
+        <div class="tab-content" id="tab-content-vasp">
+          <div class="vasp-targets-grid" id="vasp-targets-grid">
+            <div class="typology-empty">No VASP targets identified yet. Run a trace to see actionable law enforcement targets.</div>
+          </div>
+        </div>
+
+        <!-- Cross-Chain Tab -->
+        <div class="tab-content" id="tab-content-crosschain">
+          <div class="crosschain-list" id="crosschain-list">
+            <div class="typology-empty">No cross-chain hops detected. Run a trace to identify bridge hopping patterns.</div>
+          </div>
+        </div>
+
+        <!-- Graph Engine Tab -->
+        <div class="tab-content" id="tab-content-engine">
+          <div class="engine-stats-grid" id="engine-stats-grid">
+            <div class="typology-empty">No C++ graph engine data available yet.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- REPORTS VIEW -->
+    <div class="view" id="view-reports">
+      <section class="reports-section">
+        <div class="reports-header">
+          <div>
+            <h2>Saved Case Reports</h2>
+            <p>Load and inspect previously generated investigation reports</p>
+          </div>
+          <div class="reports-actions">
+            <input type="file" id="report-upload" accept=".json" style="display:none;" onchange="loadReportFile(this)" />
+            <button class="btn-secondary" onclick="document.getElementById('report-upload').click()">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Load JSON Report
+            </button>
+          </div>
+        </div>
+        <div class="reports-grid" id="reports-grid"></div>
+      </section>
+    </div>
+
+    <!-- GRAPH VIEW -->
+    <div class="view" id="view-graph">
+      <section class="graph-section">
+        <div class="graph-header">
+          <div>
+            <h2>Fund Flow Graph Visualization</h2>
+            <p>Interactive network graph showing fund movement across wallets and entities</p>
+          </div>
+          <div class="graph-controls">
+            <button class="btn-ghost" onclick="resetGraphZoom()">Reset View</button>
+            <button class="btn-ghost" onclick="toggleGraphLabels()">Toggle Labels</button>
+          </div>
+        </div>
+        <div class="graph-canvas-wrapper">
+          <canvas id="graph-canvas"></canvas>
+          <div class="graph-legend">
+            <div class="legend-item"><span class="legend-dot suspect"></span>Suspect</div>
+            <div class="legend-item"><span class="legend-dot leg-critical"></span>Critical</div>
+            <div class="legend-item"><span class="legend-dot leg-high"></span>High Risk</div>
+            <div class="legend-item"><span class="legend-dot leg-medium"></span>Medium</div>
+            <div class="legend-item"><span class="legend-dot leg-vasp"></span>VASP/Exchange</div>
+            <div class="legend-item"><span class="legend-dot leg-unhosted"></span>Unhosted</div>
+          </div>
+          <div class="graph-empty" id="graph-empty">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.59 13.51l6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+            <p>No graph data loaded. Run a trace or load a report to visualize fund flows.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- INTEL VIEW -->
+    <div class="view" id="view-intel">
+      <section class="intel-section">
+        <div class="intel-header">
+          <h2>Threat Intelligence Registry</h2>
+          <p>FIU-IND / FATF compliant typology database with statutory AML/CFT classification</p>
+        </div>
+        <div class="intel-typologies-grid" id="intel-typologies-grid"></div>
+        <div class="intel-chains">
+          <h3>Supported Chains &amp; RPC Nodes</h3>
+          <div class="chain-cards" id="chain-cards"></div>
+        </div>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- Toast Notification -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Modal: Full Report -->
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModal()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h3 id="modal-title">Case Report</h3>
+        <button class="modal-close" onclick="closeModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
