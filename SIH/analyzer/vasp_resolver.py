@@ -209,12 +209,12 @@ class VASPResolver:
                         if tag_name:
                             lower_tag = tag_name.lower()
                             v_type = "exchange"
-                            if any(k in lower_tag for k in ("bridge", "spokepool", "across", "stargate", "wormhole", "hop", "synapse", "cbridge")):
+                            if any(k in lower_tag for k in ("tether", "usdt", "usdc", "dai", "weth", "erc20", "token", "multicall", "factory", "proxy")):
+                                v_type = "smart_contract"
+                            elif any(k in lower_tag for k in ("bridge", "spokepool", "across", "stargate", "wormhole", "hop.exchange", "hopprotocol", "synapse", "cbridge")):
                                 v_type = "defi_bridge"
                             elif any(k in lower_tag for k in ("mixer", "tornado", "cyclone", "whirlpool", "blender", "sinbad", "coinjoin")):
                                 v_type = "mixer"
-                            elif any(k in lower_tag for k in ("tether", "usd", "erc20", "token", "multicall", "factory")):
-                                v_type = "smart_contract"
 
                             self.save_new_vasp(clean_addr, tag_name, vasp_type=v_type, country="Global", chain=c)
                             if v_type == "defi_bridge":
