@@ -5,7 +5,7 @@ Zero third-party API keys. Uses raw public RPC endpoints.
 
 import time
 import httpx
-from typing import Dict, Any
+from typing import Dict, Any, List, Optional, Tuple
 from analyzer.chains.base import BaseChainFetcher
 from analyzer.models import NormalizedBlock, NormalizedTx
 from analyzer.pool import NodePool
