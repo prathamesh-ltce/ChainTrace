@@ -264,7 +264,7 @@ class EVMChainFetcher(BaseChainFetcher):
                         method_s = str(method or "").lower()
                         decoded_s = str(decoded or "").lower()
 
-                        BRIDGE_KEYWORDS = ("bridge", "spokepool", "across", "stargate", "wormhole", "hop", "synapse", "cbridge", "anyswap", "multichain", "destinationchainid")
+                        BRIDGE_KEYWORDS = ("bridge", "spokepool", "across", "stargate", "wormhole", "hop.exchange", "hopprotocol", "synapse", "cbridge", "anyswap", "multichain", "destinationchainid")
                         is_bridge = any(kw in to_data_str or kw in method_s or kw in decoded_s for kw in BRIDGE_KEYWORDS)
 
                         DEX_SWAP_KEYWORDS = ("swap", "uniswap", "router", "pancakeswap", "sushiswap", "curve", "1inch", "balancer", "kyber", "dex", "strategyexecutor")

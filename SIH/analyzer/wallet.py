@@ -1032,11 +1032,17 @@ async def analyze_wallet(
     print("=" * 85)
 
     # 4. Actionable LEA Targets with Confidence Scores
-    terminal_vasps = [
-        item for item in tracer.ledger 
-        if item.get('vasp_info') 
-        and (item['vasp_info'].get('type') or '').lower() in ('exchange', 'custodial', 'centralized_exchange', 'p2p_exchange', 'instant_swap', 'dex_swapper', 'defi_bridge', 'mixer')
-    ]
+    unique_terminal_vasps = []
+    seen_vasp_addrs = set()
+    for item in tracer.ledger:
+        v_info = item.get('vasp_info') or {}
+        v_type = (v_info.get('type') or '').lower()
+        if v_type in ('exchange', 'custodial', 'centralized_exchange', 'p2p_exchange', 'instant_swap', 'dex_swapper', 'defi_bridge', 'mixer') and v_type not in ('smart_contract', 'token_contract', 'token'):
+            addr_key = item['to'].lower()
+            if addr_key not in seen_vasp_addrs:
+                seen_vasp_addrs.add(addr_key)
+                unique_terminal_vasps.append(item)
+    terminal_vasps = unique_terminal_vasps
     cross_chain_hops = tracer.cross_chain_hops
 
     print("\n[+] ACTIONABLE LAW ENFORCEMENT TARGETS (EXCHANGE / CASH-OUT TERMINALS):")
