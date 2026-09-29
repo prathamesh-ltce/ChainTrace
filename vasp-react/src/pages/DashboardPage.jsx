@@ -33,7 +33,7 @@ const ICONS = {
 }
 
 export default function DashboardPage() {
-  const { currentUser, userProfile, setCurrentView, setCurrentReport } = useApp()
+  const { currentUser, userProfile, setCurrentView, setCurrentReport, savedReports = [] } = useApp()
   const [stats, setStats] = useState(null)
   const [recentCases, setRecentCases] = useState([])
   const [loading, setLoading] = useState(false)
@@ -43,11 +43,11 @@ export default function DashboardPage() {
       setLoading(true)
       try {
         const [statsData, reportsData] = await Promise.all([
-          adminApi.getStats(),
-          reportsApi.getReports(6)
+          adminApi.getStats().catch(() => null),
+          reportsApi.getReports(50).catch(() => ({ reports: [] }))
         ])
-        setStats(statsData)
-        setRecentCases(reportsData.reports || [])
+        if (statsData) setStats(statsData)
+        if (reportsData?.reports) setRecentCases(reportsData.reports)
       } catch (err) {
         console.warn('Dashboard fetch notice:', err.message)
       } finally {
@@ -71,7 +71,15 @@ export default function DashboardPage() {
   const officerName = (userProfile?.full_name || currentUser || 'OFFICER1').toUpperCase()
   const badgeId = userProfile?.badge_id || 'LEA-DEMO-01'
   const unitName = userProfile?.unit || 'Cyber Crime Investigation Desk'
-  const totalCasesCount = stats?.total_cases ?? (recentCases.length || 43)
+  const totalCasesCount = (() => {
+    if (stats?.total_cases !== undefined && stats.total_cases !== null) {
+      return stats.total_cases
+    }
+    const combinedSet = new Set()
+    recentCases.forEach(c => c.case_id && combinedSet.add(c.case_id))
+    savedReports.forEach(c => c.case_id && combinedSet.add(c.case_id))
+    return combinedSet.size
+  })()
 
   return (
     <div style={{
