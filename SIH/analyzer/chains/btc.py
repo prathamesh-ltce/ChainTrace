@@ -22,7 +22,7 @@ class BTCChainFetcher(BaseChainFetcher):
             endpoint = f"{node_url.rstrip('/')}/blocks/tip/height"
             start = time.time()
             try:
-                async with httpx.AsyncClient(timeout=12.0) as client:
+                async with httpx.AsyncClient(timeout=3.5) as client:
                     resp = await client.get(endpoint, headers={"User-Agent": "Mozilla/5.0"})
                     if resp.status_code == 200:
                         self.pool.report_success(node_url, (time.time() - start) * 1000)
@@ -153,7 +153,7 @@ class BTCChainFetcher(BaseChainFetcher):
             node_url = await self.pool.get_next_node()
             endpoint = f"{node_url.rstrip('/')}/address/{clean_addr}/txs"
             try:
-                async with httpx.AsyncClient(timeout=8.0) as client:
+                async with httpx.AsyncClient(timeout=3.5) as client:
                     resp = await client.get(endpoint, headers={"User-Agent": "Mozilla/5.0"})
                     if resp.status_code == 200:
                         raw_txs = resp.json()

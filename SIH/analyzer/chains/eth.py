@@ -54,7 +54,7 @@ class EVMChainFetcher(BaseChainFetcher):
             node_url = await self.pool.get_next_node()
             req_start = time.time()
             try:
-                async with httpx.AsyncClient(timeout=15.0) as client:
+                async with httpx.AsyncClient(timeout=4.0) as client:
                     resp = await client.post(node_url, json=payload, headers=headers)
                     if resp.status_code == 200:
                         data = resp.json()
@@ -148,7 +148,7 @@ class EVMChainFetcher(BaseChainFetcher):
 
         url = f"https://{subdomain}.blockscout.com/api/v2/addresses/{clean_addr}/transactions"
         try:
-            async with httpx.AsyncClient(timeout=15.0) as client:
+            async with httpx.AsyncClient(timeout=4.0) as client:
                 resp = await client.get(url, headers={"User-Agent": "Mozilla/5.0"})
                 if resp.status_code == 200:
                     items = resp.json().get("items", [])

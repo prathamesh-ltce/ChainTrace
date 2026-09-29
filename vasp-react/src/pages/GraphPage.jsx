@@ -559,9 +559,10 @@ export default function GraphPage() {
      flexWrap: 'wrap',
      gap: 12,
      padding: '10px 18px',
-     background: 'var(--bg-panel)',
-     borderRadius: 'var(--r-lg)',
-     border: '1px solid var(--border-subtle)',
+     background: '#ffffff',
+     borderRadius: '16px',
+     border: '1.5px solid #030441',
+     boxShadow: '0 4px 16px rgba(3, 4, 65, 0.05)',
      flexShrink: 0
     }}
    >
@@ -740,12 +741,13 @@ export default function GraphPage() {
     style={{
      flex: 1,
      position: 'relative',
-     background: '#080d1a',
+     background: '#f8fafc',
      cursor: isPanning ? 'grabbing' : 'default',
      userSelect: 'none',
      overflow: 'hidden',
-     border: '1px solid var(--border-subtle)',
-     borderRadius: 'var(--r-lg)'
+     border: '1.5px solid #030441',
+     borderRadius: '16px',
+     boxShadow: '0 4px 16px rgba(3, 4, 65, 0.05)'
     }}
     onMouseDown={handleCanvasMouseDown}
     onMouseMove={handleCanvasMouseMove}
@@ -760,7 +762,8 @@ export default function GraphPage() {
      zIndex: 5,
      pointerEvents: 'none',
      fontSize: '0.72rem',
-     color: 'rgba(255, 255, 255, 0.4)',
+     color: '#64748b',
+     fontWeight: 700,
      display: 'flex',
      gap: 16
     }}>
@@ -778,7 +781,7 @@ export default function GraphPage() {
      >
       <defs>
        <pattern id="forensic-grid" width="30" height="30" patternUnits="userSpaceOnUse">
-        <circle cx="15" cy="15" r="1" fill="rgba(255, 255, 255, 0.05)" />
+        <circle cx="15" cy="15" r="1" fill="rgba(3, 4, 65, 0.08)" />
        </pattern>
 
        {/* Directional arrow markers */}
@@ -864,18 +867,18 @@ export default function GraphPage() {
              width="84"
              height="20"
              rx="4"
-             fill="#090e1a"
-             stroke={active ? '#38bdf8' : isEnteringVasp ? '#10b981' : 'rgba(255,255,255,0.12)'}
-             strokeWidth={active ? 1.5 : 1}
+             fill="#ffffff"
+             stroke={active ? '#0284c7' : isEnteringVasp ? '#059669' : '#cbd5e1'}
+             strokeWidth={active ? 2 : 1.5}
             />
             <text
              x="0"
              y="3.5"
              textAnchor="middle"
-             fill={active ? '#38bdf8' : isEnteringVasp ? '#34d399' : '#cbd5e1'}
+             fill={active ? '#0284c7' : isEnteringVasp ? '#059669' : '#030441'}
              fontFamily="var(--font-mono)"
              fontSize="9"
-             fontWeight="700"
+             fontWeight="800"
             >
              {formatAmount(edge.amount)} {edge.currency}
             </text>
@@ -896,10 +899,10 @@ export default function GraphPage() {
          )
          const dimmed = isDimmed && !active && !isHighlightedSearch
 
-         const borderColor = node.isSuspect ? '#ef4444' : node.isVasp ? '#10b981' : (isSelected ? '#38bdf8' : '#334155')
-         const headerBg = node.isSuspect ? 'rgba(239, 68, 68, 0.16)' : node.isVasp ? 'rgba(16, 185, 129, 0.18)' : 'rgba(255, 255, 255, 0.05)'
-         const cardBg = node.isSuspect ? '#15090e' : node.isVasp ? '#051813' : '#0b1120'
-         const titleColor = node.isSuspect ? '#f87171' : node.isVasp ? '#34d399' : '#94a3b8'
+         const borderColor = node.isSuspect ? '#dc2626' : node.isVasp ? '#059669' : (isSelected ? '#0284c7' : '#030441')
+         const headerBg = node.isSuspect ? '#fee2e2' : node.isVasp ? '#d1fae5' : '#f1f5f9'
+         const cardBg = '#ffffff'
+         const titleColor = node.isSuspect ? '#991b1b' : node.isVasp ? '#065f46' : '#030441'
 
          return (
           <g
@@ -973,10 +976,10 @@ export default function GraphPage() {
            <text
             x="11"
             y="38"
-            fill="#f8fafc"
+            fill="#030441"
             fontFamily="var(--font-mono)"
             fontSize="9.5"
-            fontWeight="600"
+            fontWeight="700"
            >
             {truncateAddress(node.addr)}
            </text>
@@ -1027,16 +1030,16 @@ export default function GraphPage() {
       position: 'absolute',
       top: 14,
       right: 14,
-      width: 330,
+      width: 340,
       maxHeight: 'calc(100% - 28px)',
-      background: 'rgba(11, 16, 28, 0.97)',
-      backdropFilter: 'blur(14px)',
-      border: '1px solid var(--border)',
-      borderRadius: 'var(--r-lg)',
-      boxShadow: '0 16px 40px rgba(0,0,0,0.6)',
-      padding: 16,
+      background: '#ffffff',
+      border: '1.5px solid #030441',
+      borderRadius: '16px',
+      boxShadow: '0 8px 30px rgba(3, 4, 65, 0.15)',
+      padding: 20,
       zIndex: 25,
-      overflowY: 'auto'
+      overflowY: 'auto',
+      color: '#030441'
      }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
        <div style={{ fontWeight: 800, fontSize: '0.88rem', color: 'var(--text-primary)' }}>
@@ -1302,33 +1305,34 @@ export default function GraphPage() {
       bottom: 0,
       left: 0,
       right: 0,
-      background: 'rgba(8, 13, 22, 0.94)',
-      backdropFilter: 'blur(8px)',
+      backgroundColor: '#ffffff',
       zIndex: 5,
-      padding: '8px 18px',
+      padding: '10px 20px',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
       flexWrap: 'wrap',
       gap: 12,
-      borderTop: '1px solid var(--border-subtle)'
+      borderTop: '1.5px solid #030441',
+      color: '#030441',
+      boxShadow: '0 -2px 10px rgba(3, 4, 65, 0.05)'
      }}
     >
-     <div style={{ display: 'flex', gap: 16, alignItems: 'center', fontSize: '0.72rem' }}>
+     <div style={{ display: 'flex', gap: 20, alignItems: 'center', fontSize: '0.75rem', fontWeight: 700 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-       <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#ef4444' }} />
-       <span style={{ color: 'var(--text-secondary)' }}>TOP: Primary Suspect (Origin)</span>
+       <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#dc2626' }} />
+       <span style={{ color: '#030441' }}>TOP: Primary Suspect (Origin)</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-       <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#64748b' }} />
-       <span style={{ color: 'var(--text-secondary)' }}>MIDDLE: Unhosted Intermediary (Layering)</span>
+       <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#64748b' }} />
+       <span style={{ color: '#030441' }}>MIDDLE: Unhosted Intermediary (Layering)</span>
       </div>
       <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-       <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#10b981' }} />
-       <span style={{ color: 'var(--text-secondary)' }}>BOTTOM: Verified VASP / Binance (Cash-Out)</span>
+       <span style={{ width: 10, height: 10, borderRadius: '50%', backgroundColor: '#059669' }} />
+       <span style={{ color: '#030441' }}>BOTTOM: Verified VASP / Binance (Cash-Out)</span>
       </div>
      </div>
-     <div style={{ color: 'var(--text-muted)', fontSize: '0.68rem', fontFamily: 'var(--font-mono)' }}>
+     <div style={{ color: '#64748b', fontSize: '0.72rem', fontFamily: 'var(--font-mono)', fontWeight: 600 }}>
       Natural Top-to-Bottom Flow • Scroll wheel to explore downstream
      </div>
     </div>

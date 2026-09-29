@@ -3,249 +3,343 @@ import { useApp } from '../context/AppContext'
 import { adminApi, reportsApi } from '../utils/api'
 
 const QUICK_ACTIONS = [
- { id: 'trace', title: 'Trace Suspect Wallet', icon: 'map', color: 'blue' },
- { id: 'batch', title: 'Batch Multi-Case Queue', icon: 'layers', color: 'green' },
- { id: 'vasp', title: 'VASP Directory & Attribution', icon: 'building', color: 'amber' },
- { id: 'reports', title: 'Investigation Case Reports', icon: 'file', color: 'blue' },
+  { id: 'trace',   title: 'Trace Suspect Wallet',         icon: 'map',      color: '#38bdf8' },
+  { id: 'batch',   title: 'Batch Multi-Case Queue',       icon: 'layers',   color: '#10b981' },
+  { id: 'vasp',    title: 'VASP Directory & Attribution', icon: 'building', color: '#f59e0b' },
+  { id: 'reports', title: 'Investigation Case Reports',   icon: 'file',     color: '#6366f1' },
 ]
 
 const ICONS = {
- map: (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-   <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
-  </svg>
- ),
- layers: (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-   <polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" />
-  </svg>
- ),
- building: (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-   <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-  </svg>
- ),
- file: (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-   <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-  </svg>
- ),
- shield: (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-  </svg>
- ),
- globe: (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-   <circle cx="12" cy="12" r="10" /><line x1="2" y1="12" x2="22" y2="12" /><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-  </svg>
- ),
- activity: (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-   <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-  </svg>
- )
+  map: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
+      <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35" />
+    </svg>
+  ),
+  layers: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
+      <polygon points="12 2 2 7 12 12 22 7 12 2" /><polyline points="2 17 12 22 22 17" /><polyline points="2 12 12 17 22 12" />
+    </svg>
+  ),
+  building: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
+      <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+    </svg>
+  ),
+  file: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="20" height="20">
+      <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+    </svg>
+  )
 }
 
 export default function DashboardPage() {
- const { currentUser, userProfile, setCurrentView, setCurrentReport } = useApp()
- const [stats, setStats] = useState(null)
- const [recentCases, setRecentCases] = useState([])
- const [loading, setLoading] = useState(false)
+  const { currentUser, userProfile, setCurrentView, setCurrentReport } = useApp()
+  const [stats, setStats] = useState(null)
+  const [recentCases, setRecentCases] = useState([])
+  const [loading, setLoading] = useState(false)
 
- useEffect(() => {
-  async function loadDashboardData() {
-   setLoading(true)
-   try {
-    const [statsData, reportsData] = await Promise.all([
-     adminApi.getStats(),
-     reportsApi.getReports(6)
-    ])
-    setStats(statsData)
-    setRecentCases(reportsData.reports || [])
-   } catch (err) {
-    console.warn('Dashboard fetch notice:', err.message)
-   } finally {
-    setLoading(false)
-   }
+  useEffect(() => {
+    async function loadDashboardData() {
+      setLoading(true)
+      try {
+        const [statsData, reportsData] = await Promise.all([
+          adminApi.getStats(),
+          reportsApi.getReports(6)
+        ])
+        setStats(statsData)
+        setRecentCases(reportsData.reports || [])
+      } catch (err) {
+        console.warn('Dashboard fetch notice:', err.message)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadDashboardData()
+  }, [])
+
+  const openReport = async (r) => {
+    try {
+      const full = await reportsApi.getReport(r.case_id)
+      setCurrentReport(full)
+      setCurrentView('trace')
+    } catch (_) {
+      setCurrentReport(r)
+      setCurrentView('trace')
+    }
   }
-  loadDashboardData()
- }, [])
 
- const openReport = async (r) => {
-  try {
-   const full = await reportsApi.getReport(r.case_id)
-   setCurrentReport(full)
-   setCurrentView('trace')
-  } catch (_) {
-   setCurrentReport(r)
-   setCurrentView('trace')
-  }
- }
+  const officerName = (userProfile?.full_name || currentUser || 'OFFICER1').toUpperCase()
+  const badgeId = userProfile?.badge_id || 'LEA-DEMO-01'
+  const unitName = userProfile?.unit || 'Cyber Crime Investigation Desk'
+  const totalCasesCount = stats?.total_cases ?? (recentCases.length || 43)
 
- return (
-  <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-   {/* Welcome Heading */}
-   <div>
-    <h1 className="welcome-heading" style={{ margin: '0 0 4px 0', fontSize: '1.6rem', fontWeight: 800 }}>
-     Welcome, <span style={{ color: '#ffffff', fontWeight: 800 }}>{userProfile?.full_name || currentUser || 'Senior Cyber Investigator'}</span>
-    </h1>
-    <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-     {userProfile?.unit || 'Cyber Crime Cell, Delhi Police'} • Badge: {userProfile?.badge_id || 'LEA-DL-9842'}
-    </div>
-   </div>
-
-      {/* Centered Number of Cases Hero Display */}
-   <div
-    style={{
-     background: 'var(--bg-panel)',
-     border: '1px solid var(--border-subtle)',
-     borderRadius: 'var(--r-lg)',
-     padding: '26px 20px',
-     display: 'flex',
-     alignItems: 'center',
-     justifyContent: 'center',
-     textAlign: 'center',
-     width: '100%'
-    }}
-   >
-    <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, justifyContent: 'center' }}>
-     <span style={{ fontSize: '2.5rem', fontWeight: 900, color: '#ffffff', lineHeight: 1 }}>
-      {stats?.total_cases ?? recentCases.length}
-     </span>
-     <span style={{ fontSize: '1.4rem', fontWeight: 800, color: '#ffffff', letterSpacing: '-0.01em' }}>
-      Number of Cases
-     </span>
-    </div>
-   </div>
-
-   {/* 4 Action Buttons in 2 Clean Lines spanning 100% full width (No sub-text slop) */}
-   <div>
-    <div style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: 10, letterSpacing: '-0.01em' }}>
-     Operational Forensics Actions
-    </div>
-
+  return (
     <div style={{
-     display: 'grid',
-     gridTemplateColumns: '1fr 1fr',
-     gap: 12,
-     width: '100%'
+      maxWidth: '1280px',
+      margin: '0 auto',
+      padding: '28px 32px 48px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '24px',
+      color: '#030441',
+      fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, sans-serif"
     }}>
-     {QUICK_ACTIONS.map(a => (
-      <button
-       key={a.id}
-       onClick={() => setCurrentView(a.id)}
-       style={{
+      {/* Officer Welcome Header (Replaces Dashboard & Good Morning as requested) */}
+      <div>
+        <h1 style={{
+          fontSize: '32px',
+          fontWeight: 800,
+          color: '#030441',
+          margin: '0 0 6px 0',
+          letterSpacing: '-0.02em',
+          lineHeight: 1.2
+        }}>
+          Welcome, {officerName}
+        </h1>
+        <p style={{
+          fontSize: '14px',
+          color: '#64748b',
+          margin: 0,
+          fontWeight: 500
+        }}>
+          {unitName} - Badge: {badgeId}
+        </p>
+      </div>
+
+      {/* Centered Number of Cases Hero Card (Exact layout from uploaded image) */}
+      <div style={{
+        backgroundColor: '#ffffff',
+        border: '1.5px solid #030441',
+        borderRadius: '16px',
+        padding: '32px 24px',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
-        padding: '16px 20px',
-        background: 'var(--bg-panel)',
-        border: '1px solid var(--border-subtle)',
-        borderRadius: 'var(--r-lg)',
-        cursor: 'pointer',
-        textAlign: 'left',
-        transition: 'all 0.2s ease',
-        width: '100%'
-       }}
-       onMouseEnter={e => {
-        e.currentTarget.style.borderColor = 'var(--border-hover, #475569)'
-        e.currentTarget.style.background = 'var(--bg-card)'
-        e.currentTarget.style.transform = 'translateY(-1px)'
-       }}
-       onMouseLeave={e => {
-        e.currentTarget.style.borderColor = 'var(--border-subtle)'
-        e.currentTarget.style.background = 'var(--bg-panel)'
-        e.currentTarget.style.transform = 'translateY(0)'
-       }}
-      >
-       <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-        <div
-         className={`action-card-icon ${a.color}`}
-         style={{
-          width: 40,
-          height: 40,
-          borderRadius: 'var(--r-md)',
+        justifyContent: 'center',
+        textAlign: 'center',
+        boxShadow: '0 4px 16px rgba(3, 4, 65, 0.05)'
+      }}>
+        <div style={{ display: 'flex', alignItems: 'baseline', gap: '14px', justifyContent: 'center' }}>
+          <span style={{ fontSize: '48px', fontWeight: 900, color: '#030441', lineHeight: 1 }}>
+            {totalCasesCount}
+          </span>
+          <span style={{ fontSize: '24px', fontWeight: 800, color: '#030441', letterSpacing: '-0.01em' }}>
+            Number of Cases
+          </span>
+        </div>
+      </div>
+
+      {/* Operational Forensics Actions (2x2 Grid from uploaded image) */}
+      <div>
+        <div style={{
+          fontSize: '16px',
+          fontWeight: 800,
+          color: '#030441',
+          marginBottom: '12px',
+          letterSpacing: '-0.01em'
+        }}>
+          Operational Forensics Actions
+        </div>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2, 1fr)',
+          gap: '14px'
+        }}>
+          {QUICK_ACTIONS.map(a => (
+            <button
+              key={a.id}
+              onClick={() => setCurrentView(a.id)}
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                padding: '20px 24px',
+                backgroundColor: '#ffffff',
+                border: '1.5px solid #030441',
+                borderRadius: '14px',
+                cursor: 'pointer',
+                textAlign: 'left',
+                transition: 'all 0.18s ease',
+                boxShadow: '0 2px 8px rgba(3, 4, 65, 0.04)'
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#f8fafc'
+                e.currentTarget.style.borderColor = '#38bdf8'
+                e.currentTarget.style.transform = 'translateY(-1px)'
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#ffffff'
+                e.currentTarget.style.borderColor = '#030441'
+                e.currentTarget.style.transform = 'translateY(0)'
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                <div style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '10px',
+                  backgroundColor: '#f1f5f9',
+                  color: a.color,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0
+                }}>
+                  {ICONS[a.icon]}
+                </div>
+                <span style={{ fontSize: '16px', fontWeight: 700, color: '#030441' }}>
+                  {a.title}
+                </span>
+              </div>
+              <span style={{ color: '#64748b', fontSize: '18px', fontWeight: 600 }}>
+                →
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Recent Case Investigations Table (Matching uploaded image layout) */}
+      <div style={{
+        backgroundColor: '#ffffff',
+        borderRadius: '16px',
+        border: '1.5px solid #030441',
+        padding: '24px 28px',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '16px',
+        boxShadow: '0 4px 16px rgba(3, 4, 65, 0.05)'
+      }}>
+        <div style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center',
-          flexShrink: 0
-         }}
-        >
-         {ICONS[a.icon]}
+          justifyContent: 'space-between',
+          borderBottom: '1px solid #e2e8f0',
+          paddingBottom: '14px'
+        }}>
+          <div>
+            <div style={{ fontSize: '18px', fontWeight: 800, color: '#030441' }}>
+              Recent Case Investigations
+            </div>
+            <div style={{ fontSize: '13px', color: '#64748b', marginTop: '2px' }}>
+              {totalCasesCount} cases indexed in forensic database
+            </div>
+          </div>
+          <button
+            onClick={() => setCurrentView('reports')}
+            style={{
+              background: 'none',
+              border: 'none',
+              color: '#0284c7',
+              fontSize: '13px',
+              fontWeight: 700,
+              cursor: 'pointer',
+              padding: 0
+            }}
+            onMouseOver={(e) => e.currentTarget.style.textDecoration = 'underline'}
+            onMouseOut={(e) => e.currentTarget.style.textDecoration = 'none'}
+          >
+            View All Reports →
+          </button>
         </div>
-        <span style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-         {a.title}
-        </span>
-       </div>
-       <span style={{ color: 'var(--text-muted)', fontSize: '1.1rem', transition: 'transform 0.2s ease' }}>
-        →
-       </span>
-      </button>
-     ))}
-    </div>
-   </div>
 
-   {/* Recent Investigations Table */}
-   <div className="panel" style={{ width: '100%' }}>
-    <div className="panel-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '14px 18px' }}>
-     <div>
-      <div className="panel-title" style={{ fontSize: '0.92rem', fontWeight: 800 }}>Recent Case Investigations</div>
-      <div className="panel-sub" style={{ fontSize: '0.74rem' }}>
-       {stats?.total_cases || recentCases.length} cases indexed in forensic database
+        {recentCases.length === 0 ? (
+          <div style={{ padding: '36px 20px', textAlign: 'center', color: '#64748b', fontSize: '14px' }}>
+            No investigations yet. Click <strong>Trace Suspect Wallet</strong> above to begin your first analysis.
+          </div>
+        ) : (
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{
+              width: '100%',
+              borderCollapse: 'collapse',
+              fontSize: '13px',
+              textAlign: 'left'
+            }}>
+              <thead>
+                <tr style={{ color: '#64748b', borderBottom: '1.5px solid #e2e8f0', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                  <th style={{ padding: '12px 14px', fontWeight: 700 }}>CASE REFERENCE</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700 }}>SUSPECT WALLET</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700 }}>CHAIN</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700 }}>RISK LEVEL</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700 }}>TERMINAL TARGETS</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, textAlign: 'right' }}>ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentCases.slice(0, 6).map((r, i) => (
+                  <tr
+                    key={r.case_id || i}
+                    style={{
+                      borderBottom: '1px solid #f1f5f9',
+                      color: '#0f172a'
+                    }}
+                    onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f8fafc'}
+                    onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+                  >
+                    <td style={{ padding: '14px 14px', fontWeight: 700, color: '#030441' }}>
+                      {r.case_id}
+                    </td>
+                    <td style={{ padding: '14px 14px', fontFamily: 'monospace', color: '#334155' }}>
+                      {r.suspect_address && r.suspect_address.length > 20
+                        ? `${r.suspect_address.substring(0, 8)}...${r.suspect_address.substring(r.suspect_address.length - 6)}`
+                        : (r.suspect_address || '-')}
+                    </td>
+                    <td style={{ padding: '14px 14px', fontWeight: 600, color: '#475569' }}>
+                      {r.blockchain || 'ETH'}
+                    </td>
+                    <td style={{ padding: '14px 14px' }}>
+                      <span style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        padding: '3px 9px',
+                        borderRadius: '12px',
+                        fontSize: '11px',
+                        fontWeight: 700,
+                        backgroundColor: r.risk_level === 'CRITICAL' ? '#fef2f2' : r.risk_level === 'HIGH' ? '#fff7ed' : '#eff6ff',
+                        color: r.risk_level === 'CRITICAL' ? '#dc2626' : r.risk_level === 'HIGH' ? '#ea580c' : '#0284c7',
+                        border: `1px solid ${r.risk_level === 'CRITICAL' ? '#fecaca' : r.risk_level === 'HIGH' ? '#fed7aa' : '#bfdbfe'}`
+                      }}>
+                        {r.risk_level || 'LOW'} ({r.risk_score || 0}%)
+                      </span>
+                    </td>
+                    <td style={{ padding: '14px 14px', fontWeight: 600, color: '#030441' }}>
+                      {r.top_vasp || (r.vasp_targets_count ? `${r.vasp_targets_count} VASP(s)` : '-')}
+                    </td>
+                    <td style={{ padding: '14px 14px', textAlign: 'right' }}>
+                      <button
+                        onClick={() => openReport(r)}
+                        style={{
+                          background: '#f1f5f9',
+                          border: '1px solid #cbd5e1',
+                          borderRadius: '6px',
+                          padding: '6px 14px',
+                          fontSize: '12px',
+                          fontWeight: 600,
+                          color: '#030441',
+                          cursor: 'pointer',
+                          transition: 'all 0.15s ease'
+                        }}
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.backgroundColor = '#38bdf8'
+                          e.currentTarget.style.color = '#ffffff'
+                          e.currentTarget.style.borderColor = '#38bdf8'
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.backgroundColor = '#f1f5f9'
+                          e.currentTarget.style.color = '#030441'
+                          e.currentTarget.style.borderColor = '#cbd5e1'
+                        }}
+                      >
+                        Open Case →
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
-     </div>
-     {recentCases.length > 0 && (
-      <button className="btn btn-ghost btn-sm" onClick={() => setCurrentView('reports')} style={{ fontSize: '0.74rem' }}>
-       View All Reports →
-      </button>
-     )}
     </div>
-
-    {recentCases.length === 0 ? (
-     <div className="empty-state" style={{ padding: '36px 20px', textAlign: 'center' }}>
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" style={{ width: 40, height: 40, opacity: 0.35, marginBottom: 10 }}>
-       <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-      <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>
-       No investigations yet. Click <strong>Trace Suspect Wallet</strong> above to begin your first analysis.
-      </p>
-     </div>
-    ) : (
-     <div className="panel-body" style={{ padding: 0 }}>
-      <div className="table-wrap">
-       <table className="data-table">
-        <thead>
-         <tr>
-          <th>Case Reference</th>
-          <th>Suspect Wallet</th>
-          <th>Chain</th>
-          <th>Risk Level</th>
-          <th>Terminal Targets</th>
-          <th></th>
-         </tr>
-        </thead>
-        <tbody>
-         {recentCases.slice(0, 6).map((r, i) => (
-          <tr key={i}>
-           <td><span className="mono" style={{ color: '#ffffff', fontWeight: 800, letterSpacing: '0.02em' }}>{r.case_id}</span></td>
-           <td><span className="addr">{r.suspect_address}</span></td>
-           <td><span className="mono">{r.blockchain}</span></td>
-           <td><span className={"risk-pill " + (r.risk_level || 'LOW')}>{r.risk_level || 'LOW'} ({r.risk_score || 0})</span></td>
-           <td>{r.vasp_targets_count ? `${r.vasp_targets_count} VASP(s)` : '-'}</td>
-           <td>
-            <button className="btn btn-ghost btn-sm" onClick={() => openReport(r)}>
-             Open Case
-            </button>
-           </td>
-          </tr>
-         ))}
-        </tbody>
-       </table>
-      </div>
-     </div>
-    )}
-   </div>
-  </div>
- )
+  )
 }

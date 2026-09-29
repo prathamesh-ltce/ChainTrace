@@ -3,7 +3,7 @@ import { adminApi } from '../utils/api'
 import { useApp } from '../context/AppContext'
 
 export default function SettingsPage() {
- const { userProfile, showToast } = useApp()
+ const { userProfile, showToast, logout } = useApp()
  const [activeTab, setActiveTab] = useState('health')
  const [stats, setStats] = useState(null)
  const [auditLogs, setAuditLogs] = useState([])
@@ -44,14 +44,43 @@ export default function SettingsPage() {
 
  return (
   <div className="page-container" style={{ padding: '24px 32px' }}>
-   {/* Title */}
-   <div style={{ marginBottom: '20px' }}>
-    <h1 style={{ fontSize: '1.6rem', fontWeight: 'bold', margin: '0 0 6px 0', display: 'flex', alignItems: 'center', gap: '10px' }}>
-      Forensic Console Administration & Compliance
-    </h1>
-    <p style={{ color: 'var(--text-sub)', margin: 0, fontSize: '0.85rem' }}>
-     System diagnostics, Section 65B compliance audit logs, multi-chain RPC infrastructure, and officer credentials.
-    </p>
+   {/* Title & Sign Out Button */}
+   <div style={{ marginBottom: '24px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', flexWrap: 'wrap', gap: '16px' }}>
+    <div>
+     <h1 style={{ fontSize: '1.6rem', fontWeight: 'bold', margin: '0 0 6px 0', display: 'flex', alignItems: 'center', gap: '10px', color: '#030441' }}>
+       Forensic Console Administration & Settings
+     </h1>
+     <p style={{ color: '#64748b', margin: 0, fontSize: '0.85rem' }}>
+      System diagnostics, Section 65B compliance audit logs, and officer session controls.
+     </p>
+    </div>
+
+    {/* Sign Out Button */}
+    <button
+      onClick={logout}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '8px',
+        padding: '10px 20px',
+        borderRadius: '8px',
+        backgroundColor: '#dc2626',
+        color: '#ffffff',
+        border: 'none',
+        fontSize: '13px',
+        fontWeight: 700,
+        cursor: 'pointer',
+        boxShadow: '0 2px 8px rgba(220, 38, 38, 0.25)',
+        transition: 'background-color 0.15s ease'
+      }}
+      onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#b91c1c'}
+      onMouseOut={(e) => e.currentTarget.style.backgroundColor = '#dc2626'}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" style={{ width: '16px', height: '16px' }}>
+        <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/>
+      </svg>
+      <span>Sign Out Session</span>
+    </button>
    </div>
 
    {/* Tabs */}

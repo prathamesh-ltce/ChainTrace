@@ -109,36 +109,40 @@ class TraceJobManager:
                 "message": "Ingesting on-chain transaction history & following directional out-flows..."
             })
 
-            # Check if this matches known demo cases or run live analyzer
+            # FAST PATH: Check SQLite Cache / Completed reports FIRST (Instant 0.5s execution)
             report_data = None
             try:
-                report_data = await analyze_wallet(
-                    address=clean_addr,
-                    coin_type=coin,
-                    date_range_str=req.date_range,
-                    tx_hash=req.tx_hash,
-                    amount=req.amount,
-                    max_hops=req.max_hops or 15
-                )
-            except Exception as e:
-                print(f"[!] Live trace notice: {e}")
-
-            # If report_data is None or empty, check existing reports in DB or file
-            if not report_data or not report_data.get("chain_of_custody_ledger"):
-                # Check if we have cached report in DB for this address
                 conn = get_db_connection()
                 cursor = conn.cursor()
                 cursor.execute(
-                    "SELECT report_json FROM cases WHERE suspect_address = ? AND status = 'complete' ORDER BY created_at DESC LIMIT 1",
-                    (clean_addr,)
+                    "SELECT report_json FROM cases WHERE (LOWER(suspect_address) = LOWER(?) OR case_id = ?) AND status = 'complete' AND report_json IS NOT NULL ORDER BY created_at DESC LIMIT 1",
+                    (clean_addr, clean_addr)
                 )
                 cached = cursor.fetchone()
                 conn.close()
                 if cached and cached["report_json"]:
-                    try:
-                        report_data = json.loads(cached["report_json"])
-                    except Exception:
-                        pass
+                    parsed = json.loads(cached["report_json"])
+                    if parsed and parsed.get("chain_of_custody_ledger"):
+                        report_data = parsed
+                        report_data["case_id"] = case_id
+                        print(f"[*] Instant Database Cache HIT for {clean_addr} ({len(report_data.get('chain_of_custody_ledger', []))} transfers)", flush=True)
+            except Exception as cache_err:
+                print(f"[!] Cache check notice: {cache_err}", flush=True)
+
+            # LIVE PATH: If not in cache, run live multi-hop analyzer with sensible hops limit
+            if not report_data or not report_data.get("chain_of_custody_ledger"):
+                effective_hops = min(int(req.max_hops or 5), 8)
+                try:
+                    report_data = await analyze_wallet(
+                        address=clean_addr,
+                        coin_type=coin,
+                        date_range_str=req.date_range,
+                        tx_hash=req.tx_hash,
+                        amount=req.amount,
+                        max_hops=effective_hops
+                    )
+                except Exception as e:
+                    print(f"[!] Live trace notice: {e}", flush=True)
 
             # Step 3: C++ CSR Graph Engine execution simulation / verification
             await self.emit_event(case_id, "progress", {
