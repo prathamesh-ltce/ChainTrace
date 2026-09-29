@@ -82,12 +82,32 @@ export default function SahyogNoticeModal({ vaspTarget, report, onClose }) {
       onClick={onClose}
       title="Close (Esc)"
       style={{
-       width: 28, height: 28, borderRadius: '6px', border: '1px solid rgba(255,255,255,0.15)',
-       background: 'rgba(255,255,255,0.06)', color: '#ffffff', fontSize: '1rem',
-       display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer'
+       width: 32,
+       height: 32,
+       minWidth: 32,
+       borderRadius: '8px',
+       border: '1px solid rgba(255, 255, 255, 0.2)',
+       background: 'rgba(255, 255, 255, 0.08)',
+       color: '#ffffff',
+       display: 'flex',
+       alignItems: 'center',
+       justifyContent: 'center',
+       cursor: 'pointer',
+       transition: 'all 0.15s ease'
+      }}
+      onMouseEnter={e => {
+       e.currentTarget.style.background = 'rgba(239, 68, 68, 0.25)'
+       e.currentTarget.style.borderColor = 'rgba(239, 68, 68, 0.6)'
+      }}
+      onMouseLeave={e => {
+       e.currentTarget.style.background = 'rgba(255, 255, 255, 0.08)'
+       e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)'
       }}
      >
-      ✕
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+       <line x1="18" y1="6" x2="6" y2="18"></line>
+       <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
      </button>
     </div>
 
