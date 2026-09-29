@@ -71,18 +71,23 @@ export default function SahyogNoticeModal({ vaspTarget, report, onClose }) {
      background: 'rgba(255,255,255,0.02)'
     }}>
      <div>
-      <h3 style={{ margin: 0, fontSize: '1.05rem', display: 'flex', alignItems: 'center', gap: '8px' }}>
+      <h3 style={{ margin: 0, fontSize: '1.05rem', fontWeight: 800, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '8px' }}>
         SAHYOG Portal - Statutory Notice Generator
       </h3>
-      <span style={{ fontSize: '0.72rem', color: 'var(--text-sub)' }}>
+      <span style={{ fontSize: '0.74rem', color: '#f1f5f9', fontWeight: 600 }}>
        Requisition under {statutorySection} to {vaspTarget?.vasp_name}
       </span>
      </div>
      <button
       onClick={onClose}
-      style={{ background: 'none', border: 'none', color: 'var(--text-sub)', fontSize: '1.2rem', cursor: 'pointer' }}
+      title="Close (Esc)"
+      style={{
+       width: 28, height: 28, borderRadius: '6px', border: '1px solid rgba(255,255,255,0.15)',
+       background: 'rgba(255,255,255,0.06)', color: '#ffffff', fontSize: '1rem',
+       display: 'flex', alignItems: 'center', justifyContent: 'center', cursor: 'pointer'
+      }}
      >
-      
+      ✕
      </button>
     </div>
 
@@ -161,7 +166,7 @@ export default function SahyogNoticeModal({ vaspTarget, report, onClose }) {
 
        <div style={{
         background: 'rgba(59,130,246,0.08)', border: '1px solid rgba(59,130,246,0.25)',
-        borderRadius: '8px', padding: '12px 16px', fontSize: '0.78rem', color: 'var(--text-sub)',
+        borderRadius: '8px', padding: '12px 16px', fontSize: '0.78rem', color: '#f8fafc',
         marginBottom: '20px'
        }}>
         <strong style={{ color: 'var(--indigo-light)' }}>ℹ Mandatory SAHYOG Portal Provisions Included:</strong>
@@ -190,8 +195,8 @@ export default function SahyogNoticeModal({ vaspTarget, report, onClose }) {
         borderRadius: '8px', marginBottom: '16px'
        }}>
         <div>
-         <div style={{ fontWeight: 'bold', color: 'var(--emerald)' }}> Notice Generated: {noticeResult.notice_ref}</div>
-         <div style={{ fontSize: '0.75rem', color: 'var(--text-sub)' }}>
+         <div style={{ fontWeight: 'bold', color: '#34d399', fontSize: '0.92rem' }}> Notice Generated: {noticeResult.notice_ref}</div>
+         <div style={{ fontSize: '0.78rem', color: '#ffffff', fontWeight: 600, marginTop: '2px' }}>
           Addressed to Nodal Compliance Desk of {noticeResult.vasp_name} ({noticeResult.compliance_email || 'Portal'})
          </div>
         </div>
